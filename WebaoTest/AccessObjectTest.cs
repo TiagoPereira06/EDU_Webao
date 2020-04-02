@@ -76,39 +76,27 @@ namespace Webao.Test
     }
 
     [TestClass]
-    public class AccessMovieObjectTest
-    {
-        private static readonly WebaoMovie movieWebao =
-            (WebaoMovie) WebaoBuilder.Build(typeof(WebaoMovie), new HttpRequest());
-
-        [TestMethod]
-        public void TestWebaoMovieGetInfo()
-        {
-            var movie = movieWebao.GetInfo("Saint George");
-            Assert.AreEqual("tt4895668", movie.imdbID);
-            Assert.AreNotEqual(2020, movie.Year);
-        }
-
-        [TestMethod]
-        public void TestWebaoMovieSearch()
-        {
-            var moviesResult = movieWebao.Search("The Godfather");
-            Assert.AreEqual(1972, moviesResult[0].Year);
-            Assert.AreEqual(1974, moviesResult[1].Year);
-            Assert.AreEqual(1990, moviesResult[2].Year);
-        }
-    }
-
-    [TestClass]
     public class AccessTvShowObjectTest
     {
         private static readonly WebaoTvShow tvShowWebao =
             (WebaoTvShow) WebaoBuilder.Build(typeof(WebaoTvShow), new HttpRequest());
         
+        private static readonly WebaoTvShow dummytvShowWebao =
+            (WebaoTvShow) WebaoBuilder.Build(typeof(WebaoTvShow), new TvMazeMockRequest());
+        
         [TestMethod]
         public void TestWebaoTvShowGetInfo()
         {
             var tvShow = tvShowWebao.GetInfo(82);
+            Assert.AreEqual("Game of Thrones", tvShow.Name);
+            Assert.AreEqual("2011-04-17", tvShow.Premiered);
+            Assert.AreNotEqual("Portuguese", tvShow.Language);
+        }
+        
+        [TestMethod]
+        public void DummyTestWebaoTvShowGetInfo()
+        {
+            var tvShow = dummytvShowWebao.GetInfo(82);
             Assert.AreEqual("Game of Thrones", tvShow.Name);
             Assert.AreEqual("2011-04-17", tvShow.Premiered);
             Assert.AreNotEqual("Portuguese", tvShow.Language);
@@ -120,12 +108,24 @@ namespace Webao.Test
     public class AccessPersonObjectTest
     {
         private static readonly WebaoPerson personWebao =
+            (WebaoPerson) WebaoBuilder.Build(typeof(WebaoPerson), new HttpRequest()); 
+        
+        private static readonly WebaoPerson dummypersonWebao =
             (WebaoPerson) WebaoBuilder.Build(typeof(WebaoPerson), new HttpRequest());
         
         [TestMethod]
         public void TestWebaoPersonGetInfo()
         {
             var person = personWebao.GetInfo(14079);
+            Assert.AreEqual("Emilia Clarke", person.Name);
+            Assert.AreEqual("http://www.tvmaze.com/people/14079/emilia-clarke", person.Url);
+            Assert.AreNotEqual("Male", person.Gender);
+        }
+        
+        [TestMethod]
+        public void DummyTestWebaoPersonGetInfo()
+        {
+            var person = dummypersonWebao.GetInfo(14079);
             Assert.AreEqual("Emilia Clarke", person.Name);
             Assert.AreEqual("http://www.tvmaze.com/people/14079/emilia-clarke", person.Url);
             Assert.AreNotEqual("Male", person.Gender);
