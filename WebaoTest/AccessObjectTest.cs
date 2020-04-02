@@ -64,4 +64,30 @@ namespace Webao.Test
             Assert.AreEqual(1990, moviesResult[2].Year);
         }
     }
+
+    [TestClass]
+    public class AccessTvShowObjectTest
+    {
+        private static readonly WebaoTvShow tvShowWebao =
+            (WebaoTvShow) WebaoBuilder.Build(typeof(WebaoTvShow), new HttpRequest());
+        
+        [TestMethod]
+        public void TestWebaoTvShowGetInfo()
+        {
+            var tvShow = tvShowWebao.GetInfo("Homeland");
+            Assert.AreEqual("US", tvShow.Country);
+            Assert.AreEqual(26708, tvShow.Id);
+            Assert.AreNotEqual("Netflix", tvShow.Network);
+        }
+
+        [TestMethod]
+        public void TestWebaoTvShowSearch()
+        {
+            var tvShowsResult = tvShowWebao.Search("Life");
+            Assert.AreEqual("18 to Life", tvShowsResult[0].Name);
+            Assert.AreEqual("24 to Life", tvShowsResult[1].Name);
+            Assert.AreEqual("A Chef's Life", tvShowsResult[2].Name);
+        }
+    }
+
 }
