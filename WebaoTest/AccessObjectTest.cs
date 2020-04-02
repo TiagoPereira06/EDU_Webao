@@ -74,20 +74,29 @@ namespace Webao.Test
         [TestMethod]
         public void TestWebaoTvShowGetInfo()
         {
-            var tvShow = tvShowWebao.GetInfo("Homeland");
-            Assert.AreEqual("US", tvShow.Country);
-            Assert.AreEqual(26708, tvShow.Id);
-            Assert.AreNotEqual("Netflix", tvShow.Network);
+            var tvShow = tvShowWebao.GetInfo(82);
+            Assert.AreEqual("Game of Thrones", tvShow.Name);
+            Assert.AreEqual("2011-04-17", tvShow.Premiered);
+            Assert.AreNotEqual("Portuguese", tvShow.Language);
         }
-
+        
+    }
+    
+    [TestClass]
+    public class AccessPersonObjectTest
+    {
+        private static readonly WebaoPerson personWebao =
+            (WebaoPerson) WebaoBuilder.Build(typeof(WebaoPerson), new HttpRequest());
+        
         [TestMethod]
-        public void TestWebaoTvShowSearch()
+        public void TestWebaoPersonGetInfo()
         {
-            var tvShowsResult = tvShowWebao.Search("Life");
-            Assert.AreEqual("18 to Life", tvShowsResult[0].Name);
-            Assert.AreEqual("24 to Life", tvShowsResult[1].Name);
-            Assert.AreEqual("A Chef's Life", tvShowsResult[2].Name);
+            var person = personWebao.GetInfo(14079);
+            Assert.AreEqual("Emilia Clarke", person.Name);
+            Assert.AreEqual("http://www.tvmaze.com/people/14079/emilia-clarke", person.Url);
+            Assert.AreNotEqual("Male", person.Gender);
         }
+        
     }
 
 }

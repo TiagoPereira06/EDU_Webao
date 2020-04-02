@@ -8,9 +8,6 @@ namespace Webao
     {
         public static AbstractAccessObject Build(Type webao, IRequest req)
         {
-            /*
-             * !!!! TODO: Read and process annotations !!!!
-             */
             var typeInformation = TypeInfoCache.Get(webao);
             var baseUrl = typeInformation.GetClassAttributesByName("BaseUrl");
             var parametersByName = typeInformation.GetClassAttributesByName("AddParameter");

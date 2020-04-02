@@ -57,14 +57,15 @@
     <Compile Include="Dto\LastFm\Track.cs" />
     <Compile Include="Dto\OMDb\DtoMovieSearch.cs" />
     <Compile Include="Dto\OMDb\Movie.cs" />
-    <Compile Include="Dto\TvShows\DtoTvShow.cs" />
-    <Compile Include="Dto\TvShows\DtoTvShowSearch.cs" />
+    <Compile Include="Dto\TvShows\Person.cs" />
     <Compile Include="Dto\TvShows\TvShow.cs" />
     <Compile Include="HttpRequestTest.cs" />
     <Compile Include="AccessObjectTest.cs" />
+    <Compile Include="LastfmMockRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebaoArtist.cs" />
     <Compile Include="WebaoMovie.cs" />
+    <Compile Include="WebaoPerson.cs" />
     <Compile Include="WebaoTrack.cs" />
     <Compile Include="WebaoTVShow.cs" />
   </ItemGroup>

@@ -3,8 +3,8 @@ using Webao.Test.Dto.TvShows;
 
 namespace Webao.Test
 {
-    [BaseUrl("https://www.episodate.com/api/")]
-    [AddParameterAttribute("page", "1")]
+    [BaseUrl("http://api.tvmaze.com/")]
+    [AddParameterAttribute("format", "json")]
 
     public class WebaoTvShow : AbstractAccessObject
 
@@ -14,18 +14,12 @@ namespace Webao.Test
             
         }
         
-        [Get("show-details?q={name}")]
-        [Mapping(typeof(DtoTvShow), ".TvShow")]
-        public TvShow GetInfo(string tvShowName)
+        [Get("shows/{name}")]
+        [Mapping(typeof(TvShow), "")]
+        public TvShow GetInfo(int tvShowId)
         {
-            return (TvShow) Request(tvShowName);
+            return (TvShow) Request(tvShowId);
         }
         
-        [Get("search?q={name}")]
-        [Mapping(typeof(DtoTvShowSearch), ".Tv_Shows")]
-        public TvShow[] Search(string tvShowName)
-        {
-            return (TvShow[]) Request(tvShowName);
-        }
     }
 }

@@ -5,8 +5,9 @@ using Webao.Test.Dto.OMDb;
 namespace Webao.Test
 {
     [BaseUrl("http://www.omdbapi.com/")]
-    [AddParameter("r", "json")]
-    [AddParameter("apikey", OpenMovieDataBaseAPI.API_KEY)]
+    [AddParameterAttribute("format", "json")]
+    [AddParameterAttribute("apikey", OpenMovieDataBaseAPI.API_KEY)]
+
     public class WebaoMovie : AbstractAccessObject
     {
         public WebaoMovie(IRequest req) : base(req)
