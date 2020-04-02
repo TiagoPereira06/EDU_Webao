@@ -11,6 +11,12 @@ namespace Webao.Test
         private static readonly WebaoTrack trackWebao =
             (WebaoTrack) WebaoBuilder.Build(typeof(WebaoTrack), new HttpRequest());
 
+        private static readonly WebaoArtist dummyartistWebao =
+            (WebaoArtist) WebaoBuilder.Build(typeof(WebaoArtist), new LastfmMockRequest());
+
+        private static readonly WebaoTrack dummytrackWebao =
+            (WebaoTrack) WebaoBuilder.Build(typeof(WebaoTrack), new LastfmMockRequest());
+
 
         [TestMethod]
         public void TestWebaoArtistGetInfo()
@@ -35,6 +41,34 @@ namespace Webao.Test
         public void TestWebaoTrackGeoGetTopTracks()
         {
             var tracks = trackWebao.GeoGetTopTracks("australia");
+            Assert.AreEqual("The Less I Know the Better", tracks[0].Name);
+            Assert.AreEqual("Mr. Brightside", tracks[1].Name);
+            Assert.AreEqual("The Killers", tracks[1].Artist.Name);
+        }
+        
+        [TestMethod]
+        public void DummyTestWebaoArtistGetInfo()
+        {
+            var artist = dummyartistWebao.GetInfo("muse");
+            Assert.AreEqual("Muse", artist.Name);
+            Assert.AreEqual("fd857293-5ab8-40de-b29e-55a69d4e4d0f", artist.Mbid);
+            Assert.AreEqual("https://www.last.fm/music/Muse", artist.Url);
+            Assert.AreNotEqual(0, artist.Stats.Listeners);
+            Assert.AreNotEqual(0, artist.Stats.Playcount);
+        }
+
+        [TestMethod]
+        public void DummyTestWebaoArtistSearch()
+        {
+            var artists = dummyartistWebao.Search("black");
+            Assert.AreEqual("Black Sabbath", artists[1].Name);
+            Assert.AreEqual("Black Eyed Peas", artists[2].Name);
+        }
+
+        [TestMethod]
+        public void DummyTestWebaoTrackGeoGetTopTracks()
+        {
+            var tracks = dummytrackWebao.GeoGetTopTracks("australia");
             Assert.AreEqual("The Less I Know the Better", tracks[0].Name);
             Assert.AreEqual("Mr. Brightside", tracks[1].Name);
             Assert.AreEqual("The Killers", tracks[1].Artist.Name);
