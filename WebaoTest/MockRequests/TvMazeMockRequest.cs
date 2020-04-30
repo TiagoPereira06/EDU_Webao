@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Webao.Test.Dto.TvShows;
+using Webao.Test.Dto.TvMaze;
 
-namespace Webao.Test
+namespace Webao.Test.MockRequests
 {
     public class TvMazeMockRequest : IRequest
     {

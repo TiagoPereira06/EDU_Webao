@@ -2,7 +2,8 @@
 
 namespace Webao.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Class |
+                    AttributeTargets.Interface ,AllowMultiple = true)]
     public class AddParameterAttribute : Attribute
     {
         public readonly string name;

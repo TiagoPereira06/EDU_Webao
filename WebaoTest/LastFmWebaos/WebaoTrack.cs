@@ -3,11 +3,11 @@ using Webao.Attributes;
 using Webao.Base;
 using Webao.Test.Dto.LastFm;
 
-namespace Webao.Test
+namespace Webao.Test.LastFmWebaos
 {
     [BaseUrl("http://ws.audioscrobbler.com/2.0/")]
-    [AddParameterAttribute("format", "json")]
-    [AddParameterAttribute("api_key", LastFmAPI.API_KEY)]
+    [AddParameter("format", "json")]
+    [AddParameter("api_key", LastFmAPI.API_KEY)]
     public class WebaoTrack : AbstractAccessObject
     {
         public WebaoTrack(IRequest req) : base(req)

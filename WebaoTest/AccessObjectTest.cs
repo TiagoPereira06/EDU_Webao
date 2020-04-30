@@ -1,4 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Webao.Test.LastFmWebaos;
+using Webao.Test.MockRequests;
+using Webao.Test.TvMazeWebaos;
 
 namespace Webao.Test
 {
@@ -45,7 +48,7 @@ namespace Webao.Test
             Assert.AreEqual("Mr. Brightside", tracks[1].Name);
             Assert.AreEqual("The Killers", tracks[1].Artist.Name);
         }
-        
+
         [TestMethod]
         public void DummyTestWebaoArtistGetInfo()
         {
@@ -80,10 +83,10 @@ namespace Webao.Test
     {
         private static readonly WebaoTvShow tvShowWebao =
             (WebaoTvShow) WebaoBuilder.Build(typeof(WebaoTvShow), new HttpRequest());
-        
+
         private static readonly WebaoTvShow dummytvShowWebao =
             (WebaoTvShow) WebaoBuilder.Build(typeof(WebaoTvShow), new TvMazeMockRequest());
-        
+
         [TestMethod]
         public void TestWebaoTvShowGetInfo()
         {
@@ -92,7 +95,7 @@ namespace Webao.Test
             Assert.AreEqual("2011-04-17", tvShow.Premiered);
             Assert.AreNotEqual("Portuguese", tvShow.Language);
         }
-        
+
         [TestMethod]
         public void DummyTestWebaoTvShowGetInfo()
         {
@@ -101,18 +104,18 @@ namespace Webao.Test
             Assert.AreEqual("2011-04-17", tvShow.Premiered);
             Assert.AreNotEqual("Portuguese", tvShow.Language);
         }
-        
+
     }
-    
+
     [TestClass]
     public class AccessPersonObjectTest
     {
         private static readonly WebaoPerson personWebao =
-            (WebaoPerson) WebaoBuilder.Build(typeof(WebaoPerson), new HttpRequest()); 
-        
+            (WebaoPerson) WebaoBuilder.Build(typeof(WebaoPerson), new HttpRequest());
+
         private static readonly WebaoPerson dummypersonWebao =
             (WebaoPerson) WebaoBuilder.Build(typeof(WebaoPerson), new HttpRequest());
-        
+
         [TestMethod]
         public void TestWebaoPersonGetInfo()
         {
@@ -121,7 +124,7 @@ namespace Webao.Test
             Assert.AreEqual("http://www.tvmaze.com/people/14079/emilia-clarke", person.Url);
             Assert.AreNotEqual("Male", person.Gender);
         }
-        
+
         [TestMethod]
         public void DummyTestWebaoPersonGetInfo()
         {
@@ -130,7 +133,25 @@ namespace Webao.Test
             Assert.AreEqual("http://www.tvmaze.com/people/14079/emilia-clarke", person.Url);
             Assert.AreNotEqual("Male", person.Gender);
         }
-        
+
     }
 
+    [TestClass]
+    public class AccessEpisodeObjectTest
+    {
+        private static readonly WebaoEpisode episodeWebao =
+            (WebaoEpisode) WebaoBuilder.Build(typeof(WebaoEpisode), new HttpRequest());
+
+
+        [TestMethod]
+        public void TestWebaoEpisodeSearch()
+        {
+            var episode = episodeWebao.Search(82, 6, 9);
+            Assert.AreEqual("Battle of the Bastards", episode.Name);
+            Assert.AreEqual(6, episode.Season);
+            Assert.AreNotEqual(25, episode.Number);
+            Assert.AreNotEqual(200, episode.Runtime);
+        }
+
+    }
 }

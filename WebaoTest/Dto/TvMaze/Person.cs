@@ -1,4 +1,4 @@
-﻿namespace Webao.Test.Dto.TvShows
+﻿namespace Webao.Test.Dto.TvMaze
 {
     public class Person
     {

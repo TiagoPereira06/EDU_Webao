@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Webao.Attributes;
@@ -23,7 +24,7 @@ namespace Webao
              */
             var getAttribute = callSite.GetCustomAttribute<GetAttribute>(false);
             var mappingAttribute = callSite.GetCustomAttribute<MappingAttribute>(false);
-            var path = CompletePath(getAttribute.path, args[0].ToString());
+            var path = CompletePath(getAttribute.path, args);
             var reply = req.Get(path, mappingAttribute.destType);
             var graphIndex = reply;
             var graphSchema = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
@@ -32,7 +33,12 @@ namespace Webao
             return graphIndex;
         }
 
-        private static string CompletePath(string path, string fill)
+        private static string CompletePath(string path, IEnumerable<object> fill)
+        {
+            return fill.Aggregate(path, (current, arg) => FillPath(current, arg.ToString()));
+        }
+
+        private static string FillPath(string path, string fill)
         {
             var l = path.IndexOf('{');
             var r = path.IndexOf('}') + 1;

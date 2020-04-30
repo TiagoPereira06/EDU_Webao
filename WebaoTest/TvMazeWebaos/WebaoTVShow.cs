@@ -1,10 +1,10 @@
 ﻿using Webao.Attributes;
-using Webao.Test.Dto.TvShows;
+using Webao.Test.Dto.TvMaze;
 
-namespace Webao.Test
+namespace Webao.Test.TvMazeWebaos
 {
     [BaseUrl("http://api.tvmaze.com/")]
-    [AddParameterAttribute("format", "json")]
+    [AddParameter("format", "json")]
 
     public class WebaoTvShow : AbstractAccessObject
 
@@ -14,7 +14,7 @@ namespace Webao.Test
             
         }
         
-        [Get("shows/{name}")]
+        [Get("shows/{tvShowId}")]
         [Mapping(typeof(TvShow), "")]
         public TvShow GetInfo(int tvShowId)
         {

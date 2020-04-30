@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Webao.Test.Dto.LastFm;
 
-namespace Webao
+namespace Webao.Test.MockRequests
 {
     public class LastfmMockRequest : IRequest
     {
