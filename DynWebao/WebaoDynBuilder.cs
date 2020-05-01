@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Configuration;
+using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using Webao;
 using Webao.Attributes;
@@ -10,6 +10,9 @@ namespace DynWebao
 {
     public class WebaoDynBuilder
     {
+        private static BuilderHelper builderHelper = new BuilderHelper();
+        private static Emitter emitter = new Emitter();
+        
         public static object Build(Type interfaceWebao, IRequest req)
         {
             var typeInformation = TypeInfoCache.Get(interfaceWebao);
@@ -22,24 +25,21 @@ namespace DynWebao
                 if (param is AddParameterAttribute parameterAttribute)
                     req.AddParameter(parameterAttribute.name, parameterAttribute.val);
 
-            BuilderHelper builderHelper = new BuilderHelper();
-            //TODO : CRIAR ModuleBuilder com do ASSEMBLY
-            ModuleBuilder builder = builderHelper.getModuleBuilder(interfaceWebao.Name);
-
-            //TODO : CRIAR TypeBuilder com especificação de classe
-            TypeBuilder t = BuilderHelper.GetTypeBuilder(interfaceWebao,builder);
-
-            Emitter emitter = new Emitter();
+            builderHelper.SetModuleBuilder(interfaceWebao.Name.Remove(0,1));
+            builderHelper.SetTypeBuilder(interfaceWebao);
+            emitter.EmitConstructor(builderHelper.TypeBuilder,builderHelper.GetBaseCtor());
+            
             var methods = interfaceWebao.GetMethods();
-            foreach (var method in methods)
+            
+            /*foreach (var method in methods)
             {
-                MethodInformation info = BuilderHelper.ProcessMethod(method);
-                emitter.EmitMethod(t,info);
-                 
+                MethodInformation info = builderHelper.ProcessMethod(method);
+                emitter.EmitMethod(builderHelper.TypeBuilder, info);
+            }*/
 
-            }
-
-            return Activator.CreateInstance(interfaceWebao, req);
+            builderHelper.Save();
+            return Activator.CreateInstance(builderHelper.TypeBuilder.CreateType(), req);
         }
+        
     }
 }

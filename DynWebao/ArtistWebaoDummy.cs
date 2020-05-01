@@ -9,23 +9,19 @@ namespace DynWebao
     public class ArtistWebaoDummy : Base, IWebaoDynArtist
     {
         private readonly IRequest req;
-        public ArtistWebaoDummy()
+        public ArtistWebaoDummy(IRequest req)
         {
-            req = new HttpRequest();
-            req.BaseUrl("http://ws.audioscrobbler.com/2.0/");
-            req.AddParameter("format", "json");
-            req.AddParameter("api_key", LastFmAPI.API_KEY);
-            
+            this.req = req;
         }
 
-        public Artist GetInfo(string name)
+        public Artist GetInfo(object name)
         {
             String path = "?method=artist.getinfo&artist={name}";
-            DtoArtist dto = (DtoArtist) req.Get(CompletePath(path,new object[] {name.ToString()}), typeof(DtoArtist));
+            DtoArtist dto = (DtoArtist) req.Get(CompletePath(path,new[] {name.ToString()}), typeof(DtoArtist));
             return dto.Artist;
         }
 
-        public List<Artist> Search(string name, int page)
+        public List<Artist> Search(object name, object page)
         {
             String path = "?method=artist.search&artist={name}&page={page}";
             DtoSearch dto = (DtoSearch) req.Get(CompletePath(path,new []{name.ToString(),page.ToString()}), typeof(DtoSearch));

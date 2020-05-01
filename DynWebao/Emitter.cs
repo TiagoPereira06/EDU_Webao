@@ -1,39 +1,79 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
+using Webao;
 
 namespace DynWebao
 {
     public class Emitter
     {
-        public void EmitMethod(TypeBuilder typeBuilder,MethodInformation methodInfo)
+        public void EmitConstructor(TypeBuilder typeBuilder, ConstructorInfo baseCtor)
         {
-            BuilderHelper builderHelper = new BuilderHelper();
-            Console.WriteLine(methodInfo.Args);
-            MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodInfo.Name, methodInfo.MethodAttrs,
-                methodInfo.ReturnType, methodInfo.Args.ToArray());
-            
-            ILGenerator ilGen = methodBuilder.GetILGenerator();
-            ilGen.Emit(OpCodes.Ldstr, methodInfo.Mapping.path);
-            ilGen.Emit(OpCodes.Stloc_0);
-            //TODO : ITERAR OS ARGS PARA COMPLETE PATH(DÚVIDA)
-            foreach (var arg in methodInfo.Args)
-            {
-                //ilGen.Emit();
-            }
-            
-            ilGen.Emit(OpCodes.Ldc_I4,methodInfo.Args.Count);
-            ilGen.Emit(OpCodes.Newarr);
-            //DEPOIS DE TER O PATH
-            ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.destType);
-            //ilGen.Emit(OpCodes.Call,class[mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle);
+            ConstructorBuilder constructorBuilder = typeBuilder.DefineConstructor(
+                MethodAttributes.Public |
+                MethodAttributes.SpecialName |
+                MethodAttributes.RTSpecialName,
+                CallingConventions.Standard,
+                new[] {typeof(IRequest)});
 
-
+            ILGenerator ilGen = constructorBuilder.GetILGenerator();
+            ilGen.Emit(OpCodes.Ldarg_0);
+            ilGen.Emit(OpCodes.Call, baseCtor);
+            ilGen.Emit(OpCodes.Ldarg_0);
+            ilGen.Emit(OpCodes.Ldarg_1);
+            //TODO : ST do Campo req passado no construtor - >
+            ilGen.Emit(OpCodes.Stfld,typeof(IRequest));
+            
+            ilGen.Emit(OpCodes.Ret);
         }
 
-        public AssemblyBuilder Init()
+        public void EmitMethod(TypeBuilder typeBuilder, MethodInformation methodInfo)
         {
-            throw new System.NotImplementedException();
+            MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodInfo.Name, MethodAttributes.Family|MethodAttributes.Virtual|
+                                                                                    MethodAttributes.Public,
+                methodInfo.ReturnType, methodInfo.Args.ToArray());
+
+            ILGenerator ilGen = methodBuilder.GetILGenerator();
+
+            ilGen.Emit(OpCodes.Ldstr, methodInfo.Mapping.path);
+            ilGen.Emit(OpCodes.Stloc_0);
+            ilGen.Emit(OpCodes.Ldarg_0);
+            /* ldfld class [Webao]Webao.IRequest DynWebao.ArtistWebaoDummy::req
+             * TODO: LDFLD do req - >
+             */
+            ilGen.Emit(OpCodes.Ldfld, typeof(IRequest));
+            
+            ilGen.Emit(OpCodes.Ldloc_0);
+            ilGen.Emit(OpCodes.Ldc_I4, methodInfo.Args.Count);
+            ilGen.Emit(OpCodes.Newarr, typeof(string[]));
+            ilGen.Emit(OpCodes.Dup);
+            ilGen.Emit(OpCodes.Ldc_I4_0);
+            for (int i = 0; i < methodInfo.Args.Count; i++)
+            {
+                ilGen.Emit(OpCodes.Ldarg, i + 1);
+                /* callvirt instance string [mscorlib]System.Object::ToString()
+                 * TODO : CALL TO STRING ->
+                 */
+                ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString"));
+
+                 ilGen.Emit(OpCodes.Stelem_Ref);
+                if (i != methodInfo.Args.Count)
+                    ilGen.Emit(OpCodes.Dup);
+            }
+
+
+            ilGen.Emit(OpCodes.Call, typeof(Base).GetRuntimeMethods().ElementAt(0));
+            
+            ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.destType);
+            ilGen.Emit(OpCodes.Callvirt, typeof(Type).GetMethod("GetTypeFromHandle",
+                BindingFlags.Public | BindingFlags.Static) ?? throw new Exception());
+            ilGen.Emit(OpCodes.Castclass, methodInfo.Mapping.destType);
+                /* IL_0035:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist::get_Artist()
+                 * TODO : CALLVIRT get->
+                 */
+                ilGen.Emit(OpCodes.Ret);
+
         }
     }
 }

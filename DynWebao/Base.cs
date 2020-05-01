@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Webao;
 
 namespace DynWebao
 {
     public abstract class Base
     {
-        protected static string CompletePath(string path, IEnumerable<object> fill)
+        protected static string CompletePath(string path, string[] fill)
         {
             return fill.Aggregate(path, (current, arg) => FillPath(current, arg.ToString()));
         }

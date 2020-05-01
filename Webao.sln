@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynWebao", "DynWebao\DynWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynWebaoTest", "DynWebaoTest\DynWebaoTest.csproj", "{2BCBFD78-F2B1-4DE9-B651-AD945092C219}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebaoBench", "WebaoBench\WebaoBench.csproj", "{2B595DD7-A7FC-4202-8756-C403C2C94392}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2BCBFD78-F2B1-4DE9-B651-AD945092C219}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BCBFD78-F2B1-4DE9-B651-AD945092C219}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BCBFD78-F2B1-4DE9-B651-AD945092C219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B595DD7-A7FC-4202-8756-C403C2C94392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B595DD7-A7FC-4202-8756-C403C2C94392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B595DD7-A7FC-4202-8756-C403C2C94392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B595DD7-A7FC-4202-8756-C403C2C94392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

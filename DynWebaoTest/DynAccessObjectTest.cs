@@ -21,13 +21,13 @@ namespace DynWebaoTest
         }*/
         [TestMethod]
         public void Teste() {
-            /*IRequest req = new HttpRequest();
+            IRequest req = new HttpRequest();
             IWebaoDynArtist webaoDyn = 
                 (IWebaoDynArtist) WebaoDynBuilder
-                    .Build(typeof(IWebaoDynArtist), req);    */
-            ArtistWebaoDummy artistWebaoDummy = new ArtistWebaoDummy();
+                    .Build(typeof(IWebaoDynArtist), req);    
+            /*ArtistWebaoDummy artistWebaoDummy = new ArtistWebaoDummy();
             var path = artistWebaoDummy.Search("muse", 1);
-            Console.WriteLine(path);
+            Console.WriteLine(path);*/
             
         }
     }

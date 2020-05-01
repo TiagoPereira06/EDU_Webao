@@ -10,13 +10,15 @@ namespace DynWebao
 {
     public class BuilderHelper
     {
-        public static MethodInformation ProcessMethod(MethodInfo method)
+        public TypeBuilder TypeBuilder;
+        private ModuleBuilder moduleBuilder;
+        private AssemblyBuilder asmBuilder;
+        private String filename;
+        public MethodInformation ProcessMethod(MethodInfo method)
         {
             MappingAttribute mappingAttribute = null;
             GetAttribute getAttribute = null;
-            String methodName = method.Name;
             IList<Type> args = method.GetParameters().Select(arg => arg.ParameterType).ToList();
-            Type returnType = method.ReturnType;
             foreach (var attr in method.GetCustomAttributes<Attribute>())
             {
                 switch (attr)
@@ -29,36 +31,36 @@ namespace DynWebao
                         break;
                 }
             }
-
-            MethodInformation info = new MethodInformation {Name = methodName, ReturnType = returnType, Args = args};
+            MethodInformation info = new MethodInformation {Name = method.Name, ReturnType = method.ReturnType, Args = args};
             if (mappingAttribute != null) info.Mapping = mappingAttribute;
             if (getAttribute != null) info.Get = getAttribute;
             info.MethodAttrs = method.Attributes;
             return info;
         }
 
-        public static TypeBuilder GetTypeBuilder(Type interfaceType, ModuleBuilder moduleBuilder)
+        public void SetTypeBuilder(Type interfaceType)
         {
-            return moduleBuilder.DefineType(interfaceType.Name, interfaceType.Attributes, typeof(Base));
+            TypeBuilder = moduleBuilder.DefineType(interfaceType.Name, TypeAttributes.AnsiClass, typeof(Base));
         }
 
-        public ModuleBuilder getModuleBuilder(string name)
+        public void SetModuleBuilder(string name)
         {
             AssemblyName asmName = new AssemblyName {Name = name};
             AppDomain appDom = Thread.GetDomain();
-            AssemblyBuilder asmBuilder = appDom.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndSave);
-            string filename = asmName.Name + ".exe";
-            return asmBuilder.DefineDynamicModule(asmName.Name, filename);
+            asmBuilder = appDom.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndSave); 
+            filename = asmName.Name + ".exe";
+            moduleBuilder = asmBuilder.DefineDynamicModule(asmName.Name, filename);
         }
-    }
 
-    public class MethodInformation
-    {
-        public String Name { get; set; }
-        public Type ReturnType { get; set; }
-        public IList<Type> Args { get; set; }
-        public MappingAttribute Mapping { get; set; }
-        public GetAttribute Get { get; set; }
-        public MethodAttributes MethodAttrs { get; set; }
+        public ConstructorInfo GetBaseCtor()
+        {
+            ConstructorInfo ctor = typeof(Base).GetTypeInfo().DeclaredConstructors.First();
+            return ctor;
+        }
+
+        public void Save()
+        {
+            asmBuilder.Save(filename);
+        }
     }
 }
