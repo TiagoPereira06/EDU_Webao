@@ -48,8 +48,8 @@ namespace DynWebao
                 ilGen.Emit(OpCodes.Ldarg, i + 1);
                 ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString",Type.EmptyTypes));
                 ilGen.Emit(OpCodes.Stelem_Ref);
-                if (i != methodInfo.Args.Count)
-                    ilGen.Emit(OpCodes.Dup);
+                /*if (i != methodInfo.Args.Count)
+                    ilGen.Emit(OpCodes.Dup);*/
             } 
             ilGen.Emit(OpCodes.Call, typeof(Base).GetRuntimeMethods().ElementAt(0));
             ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.destType);

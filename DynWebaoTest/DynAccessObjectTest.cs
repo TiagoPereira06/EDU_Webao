@@ -28,7 +28,6 @@ namespace DynWebaoTest
             /*ArtistWebaoDummy artistWebaoDummy = new ArtistWebaoDummy();
             var path = artistWebaoDummy.Search("muse", 1);
             Console.WriteLine(path);*/
-            
         }
     }
 }

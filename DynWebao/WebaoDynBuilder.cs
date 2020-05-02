@@ -34,8 +34,9 @@ namespace DynWebao
                 emitter.EmitMethod(builderHelper.TypeBuilder, info);
             }
 
+            var type = builderHelper.TypeBuilder.CreateType();
             builderHelper.Save();
-            return Activator.CreateInstance(builderHelper.TypeBuilder.CreateType(), req);
+            return Activator.CreateInstance(type, req);
         }
         
     }

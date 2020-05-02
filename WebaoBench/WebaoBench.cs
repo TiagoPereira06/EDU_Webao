@@ -12,9 +12,9 @@ namespace WebaoBench
     {
         public WebaoBenchConfig()
         {
-            Add(Job.MediumRun
+            AddJob(Job.MediumRun
                 .WithLaunchCount(1)
-                .With(InProcessEmitToolchain.Instance)
+                .WithToolchain(InProcessEmitToolchain.Instance)
                 .WithId("InProcess"));
         }
     }
