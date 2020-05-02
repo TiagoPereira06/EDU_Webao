@@ -20,12 +20,8 @@ namespace DynWebao
 
             ILGenerator ilGen = constructorBuilder.GetILGenerator();
             ilGen.Emit(OpCodes.Ldarg_0);
-            ilGen.Emit(OpCodes.Call, baseCtor);
-            ilGen.Emit(OpCodes.Ldarg_0);
             ilGen.Emit(OpCodes.Ldarg_1);
-            //TODO : ST do Campo req passado no construtor - >
-            ilGen.Emit(OpCodes.Stfld,typeof(IRequest));
-            
+            ilGen.Emit(OpCodes.Call, baseCtor);
             ilGen.Emit(OpCodes.Ret);
         }
 

@@ -6,6 +6,13 @@ namespace DynWebao
 {
     public abstract class Base
     {
+        public IRequest req;
+
+        protected Base(IRequest req)
+        {
+            this.req = req;
+        }
+
         protected static string CompletePath(string path, string[] fill)
         {
             return fill.Aggregate(path, (current, arg) => FillPath(current, arg.ToString()));

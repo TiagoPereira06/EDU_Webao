@@ -30,7 +30,7 @@ namespace DynWebao
             
             foreach (var method in methods)
             {
-                MethodInformation info = builderHelper.ProcessMethod(method);
+                var info = builderHelper.ProcessMethod(method);
                 emitter.EmitMethod(builderHelper.TypeBuilder, info);
             }
 

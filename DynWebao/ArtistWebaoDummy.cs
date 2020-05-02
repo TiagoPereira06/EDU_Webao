@@ -8,11 +8,8 @@ namespace DynWebao
 {
     public class ArtistWebaoDummy : Base, IWebaoDynArtist
     {
-        private readonly IRequest req;
-        public ArtistWebaoDummy(IRequest req)
-        {
-            this.req = req;
-        }
+        public ArtistWebaoDummy(IRequest req) : base(req){}
+
 
         public Artist GetInfo(object name)
         {

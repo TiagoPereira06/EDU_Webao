@@ -40,7 +40,9 @@ namespace DynWebao
 
         public void SetTypeBuilder(Type interfaceType)
         {
-            TypeBuilder = moduleBuilder.DefineType(interfaceType.Name.Remove(0,1), TypeAttributes.AnsiClass, typeof(Base));
+            TypeBuilder = moduleBuilder.DefineType(interfaceType.Name.Remove(0,1), TypeAttributes.AnsiClass| TypeAttributes.Public
+                | TypeAttributes.AutoClass, typeof(Base));
+            TypeBuilder.AddInterfaceImplementation(interfaceType);
         }
 
         public void SetModuleBuilder(string name)
@@ -54,8 +56,7 @@ namespace DynWebao
 
         public ConstructorInfo GetBaseCtor()
         {
-            ConstructorInfo ctor = typeof(Base).GetTypeInfo().DeclaredConstructors.First();
-            return ctor;
+            return typeof(Base).GetTypeInfo().DeclaredConstructors.First();
         }
 
         public void Save()
