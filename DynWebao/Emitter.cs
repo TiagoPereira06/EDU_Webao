@@ -35,8 +35,8 @@ namespace DynWebao
                 methodInfo.ReturnType, methodInfo.Args.ToArray());
 
             ILGenerator ilGen = methodBuilder.GetILGenerator();
-
-            ilGen.Emit(OpCodes.Ldstr, methodInfo.Mapping.path);
+            ilGen.DeclareLocal(typeof(string));
+            ilGen.Emit(OpCodes.Ldstr, methodInfo.Get.path);
             ilGen.Emit(OpCodes.Stloc_0);
             ilGen.Emit(OpCodes.Ldarg_0);
             /* ldfld class [Webao]Webao.IRequest DynWebao.ArtistWebaoDummy::req
@@ -46,7 +46,7 @@ namespace DynWebao
             
             ilGen.Emit(OpCodes.Ldloc_0);
             ilGen.Emit(OpCodes.Ldc_I4, methodInfo.Args.Count);
-            ilGen.Emit(OpCodes.Newarr, typeof(string[]));
+            ilGen.Emit(OpCodes.Newarr, typeof(string));
             ilGen.Emit(OpCodes.Dup);
             ilGen.Emit(OpCodes.Ldc_I4_0);
             for (int i = 0; i < methodInfo.Args.Count; i++)
@@ -55,24 +55,21 @@ namespace DynWebao
                 /* callvirt instance string [mscorlib]System.Object::ToString()
                  * TODO : CALL TO STRING ->
                  */
-                ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString"));
-
-                 ilGen.Emit(OpCodes.Stelem_Ref);
+                ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString",Type.EmptyTypes));
+                ilGen.Emit(OpCodes.Stelem_Ref);
                 if (i != methodInfo.Args.Count)
                     ilGen.Emit(OpCodes.Dup);
-            }
-
-
+            } 
             ilGen.Emit(OpCodes.Call, typeof(Base).GetRuntimeMethods().ElementAt(0));
-            
             ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.destType);
             ilGen.Emit(OpCodes.Callvirt, typeof(Type).GetMethod("GetTypeFromHandle",
                 BindingFlags.Public | BindingFlags.Static) ?? throw new Exception());
             ilGen.Emit(OpCodes.Castclass, methodInfo.Mapping.destType);
-                /* IL_0035:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist::get_Artist()
-                 * TODO : CALLVIRT get->
-                 */
-                ilGen.Emit(OpCodes.Ret);
+            /* IL_0035:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist::get_Artist()
+             * TODO : CALLVIRT get->
+             */
+            ilGen.Emit(OpCodes.Ldloc_0);
+            ilGen.Emit(OpCodes.Ret);
 
         }
     }
