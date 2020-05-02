@@ -40,7 +40,7 @@ namespace DynWebao
 
         public void SetTypeBuilder(Type interfaceType)
         {
-            TypeBuilder = moduleBuilder.DefineType(interfaceType.Name, TypeAttributes.AnsiClass, typeof(Base));
+            TypeBuilder = moduleBuilder.DefineType(interfaceType.Name.Remove(0,1), TypeAttributes.AnsiClass, typeof(Base));
         }
 
         public void SetModuleBuilder(string name)
@@ -48,7 +48,7 @@ namespace DynWebao
             AssemblyName asmName = new AssemblyName {Name = name};
             AppDomain appDom = Thread.GetDomain();
             asmBuilder = appDom.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndSave); 
-            filename = asmName.Name + ".exe";
+            filename = asmName.Name + ".dll";
             moduleBuilder = asmBuilder.DefineDynamicModule(asmName.Name, filename);
         }
 

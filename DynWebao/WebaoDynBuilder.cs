@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 using Webao;
 using Webao.Attributes;
 using Webao.Base;
@@ -26,16 +23,16 @@ namespace DynWebao
                     req.AddParameter(parameterAttribute.name, parameterAttribute.val);
 
             builderHelper.SetModuleBuilder(interfaceWebao.Name.Remove(0,1));
-            builderHelper.SetTypeBuilder(interfaceWebao);
+            builderHelper.SetTypeBuilder(interfaceWebao); 
             emitter.EmitConstructor(builderHelper.TypeBuilder,builderHelper.GetBaseCtor());
             
             var methods = interfaceWebao.GetMethods();
             
-            /*foreach (var method in methods)
+            foreach (var method in methods)
             {
                 MethodInformation info = builderHelper.ProcessMethod(method);
                 emitter.EmitMethod(builderHelper.TypeBuilder, info);
-            }*/
+            }
 
             builderHelper.Save();
             return Activator.CreateInstance(builderHelper.TypeBuilder.CreateType(), req);
