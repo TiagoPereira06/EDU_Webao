@@ -1,4 +1,5 @@
-﻿using Benchmark.Running;
+﻿//using Benchmark.Running;
+using BenchmarkDotNet.Running;
 
 namespace WebaoBench
 {
@@ -6,7 +7,7 @@ namespace WebaoBench
     {
         public static void Main(string[] args)
         {
-            BenchmarkRunner.Run<LoggerBench>();
+            //BenchmarkRunner.Run<LoggerBench>();
         }
     }
 }

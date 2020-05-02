@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using Webao;
+using Webao.Attributes;
 
 namespace DynWebao
 {
@@ -30,8 +31,8 @@ namespace DynWebao
 
         public void EmitMethod(TypeBuilder typeBuilder, MethodInformation methodInfo)
         {
-            MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodInfo.Name, MethodAttributes.Family|MethodAttributes.Virtual|
-                                                                                    MethodAttributes.Public,
+            MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodInfo.Name, MethodAttributes.Virtual|MethodAttributes.Public|
+                                                                                    MethodAttributes.ReuseSlot,
                 methodInfo.ReturnType, methodInfo.Args.ToArray());
 
             ILGenerator ilGen = methodBuilder.GetILGenerator();
@@ -41,7 +42,7 @@ namespace DynWebao
             ilGen.Emit(OpCodes.Ldarg_0);
             /* ldfld class [Webao]Webao.IRequest DynWebao.ArtistWebaoDummy::req
              * TODO: LDFLD do req - >
-             */
+             */ 
             ilGen.Emit(OpCodes.Ldfld, typeof(IRequest));
             
             ilGen.Emit(OpCodes.Ldloc_0);
@@ -52,9 +53,6 @@ namespace DynWebao
             for (int i = 0; i < methodInfo.Args.Count; i++)
             {
                 ilGen.Emit(OpCodes.Ldarg, i + 1);
-                /* callvirt instance string [mscorlib]System.Object::ToString()
-                 * TODO : CALL TO STRING ->
-                 */
                 ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString",Type.EmptyTypes));
                 ilGen.Emit(OpCodes.Stelem_Ref);
                 if (i != methodInfo.Args.Count)
@@ -65,12 +63,21 @@ namespace DynWebao
             ilGen.Emit(OpCodes.Callvirt, typeof(Type).GetMethod("GetTypeFromHandle",
                 BindingFlags.Public | BindingFlags.Static) ?? throw new Exception());
             ilGen.Emit(OpCodes.Castclass, methodInfo.Mapping.destType);
-            /* IL_0035:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist::get_Artist()
-             * TODO : CALLVIRT get->
-             */
-            ilGen.Emit(OpCodes.Ldloc_0);
+            GenResult(ilGen, methodInfo.Mapping);
             ilGen.Emit(OpCodes.Ret);
 
+        }
+
+        private static void GenResult(ILGenerator ilGen, MappingAttribute mappingAttribute)
+        {
+            var property = mappingAttribute.destType;
+            var propertyNames = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
+            foreach (var propertyName in propertyNames)
+            {
+                var aux = property?.GetProperty(propertyName);
+                ilGen.Emit(OpCodes.Callvirt, aux?.GetGetMethod());
+                property = aux?.PropertyType;
+            }
         }
     }
 }

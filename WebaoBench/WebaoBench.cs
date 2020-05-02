@@ -20,7 +20,7 @@ namespace WebaoBench
     }
 
     [RankColumn]
-    [Config(typeof(LoggerBenchConfig))]
+    //[Config(typeof(LoggerBenchConfig))]
     public class WebaoBench
     {
         //TODO TESTS

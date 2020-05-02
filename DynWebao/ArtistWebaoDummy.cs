@@ -17,7 +17,7 @@ namespace DynWebao
         public Artist GetInfo(object name)
         {
             String path = "?method=artist.getinfo&artist={name}";
-            DtoArtist dto = (DtoArtist) req.Get(CompletePath(path,new[] {name.ToString()}), typeof(DtoArtist));
+            var dto = (DtoArtist) req.Get(CompletePath(path,new[] {name.ToString()}), typeof(DtoArtist));
             return dto.Artist;
         }
 
