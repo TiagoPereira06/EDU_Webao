@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using Webao;
 using Webao.Attributes;
 
-namespace DynWebao
+namespace DynWebao.DynBuilder
 {
     public class Emitter
     {
@@ -79,6 +79,10 @@ namespace DynWebao
             var propertyNames = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
             foreach (var propertyName in propertyNames)
             {
+                if (property.IsValueType)
+                {
+                    ilGen.DeclareLocal(property);
+                }
                 var aux = property?.GetProperty(propertyName);
                 ilGen.Emit(OpCodes.Callvirt, aux?.GetGetMethod());
                 property = aux?.PropertyType;

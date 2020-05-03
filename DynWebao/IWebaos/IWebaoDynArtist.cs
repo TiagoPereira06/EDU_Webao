@@ -3,7 +3,7 @@ using Webao.Attributes;
 using Webao.Base;
 using Webao.Test.Dto.LastFm;
 
-namespace DynWebao
+namespace DynWebao.IWebaos
 {
     [BaseUrl("http://ws.audioscrobbler.com/2.0/")]
     [AddParameter("format", "json")]

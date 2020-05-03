@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using DynWebao.IWebaos;
 using Webao;
 using Webao.Test.Dto.LastFm;
 
-namespace DynWebao
+namespace DynWebao.WebaoDummy.LastFm
 {
     public class ArtistWebaoDummy : Base, IWebaoDynArtist
     {

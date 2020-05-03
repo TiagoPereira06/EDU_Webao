@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using System.Threading;
 using Webao.Attributes;
 
-namespace DynWebao
+namespace DynWebao.DynBuilder
 {
     public class BuilderHelper
     {

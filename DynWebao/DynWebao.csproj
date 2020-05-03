@@ -38,14 +38,17 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ArtistWebaoDummy.cs" />
         <Compile Include="Base.cs" />
-        <Compile Include="Emitter.cs" />
-        <Compile Include="BuilderHelper.cs" />
-        <Compile Include="MethodInformation.cs" />
+        <Compile Include="DynBuilder\BuilderHelper.cs" />
+        <Compile Include="DynBuilder\Emitter.cs" />
+        <Compile Include="DynBuilder\MethodInformation.cs" />
+        <Compile Include="DynBuilder\WebaoDynBuilder.cs" />
+        <Compile Include="IWebaos\IWebaoDynTrack.cs" />
+        <Compile Include="IWebaos\IWebaoDynArtist.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="IWebaoDynArtist.cs" />
-        <Compile Include="WebaoDynBuilder.cs" />
+        <Compile Include="WebaoDummy\LastFm\ArtistWebaoDummy.cs" />
+        <Compile Include="WebaoDummy\LastFm\TrackWebaoDummy.cs" />
+        <Compile Include="WebaoDummy\TvMaze\EpisodeWebaoDummy.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\WebaoTest\WebaoTest.csproj">

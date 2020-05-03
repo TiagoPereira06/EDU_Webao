@@ -3,7 +3,7 @@ using Webao;
 using Webao.Attributes;
 using Webao.Base;
 
-namespace DynWebao
+namespace DynWebao.DynBuilder
 {
     public class WebaoDynBuilder
     {
