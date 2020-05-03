@@ -260,7 +260,8 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Program.cs" />
+        <Compile Include="GetWebao.cs" />
+        <Compile Include="NBench.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="WebaoBench.cs" />
     </ItemGroup>
@@ -270,6 +271,20 @@
     <ItemGroup>
       <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
       <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\DynWebao\DynWebao.csproj">
+        <Project>{156db1d5-3fcf-4340-952e-c6eaff7a8c79}</Project>
+        <Name>DynWebao</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WebaoTest\WebaoTest.csproj">
+        <Project>{8136fba5-9e2a-4f62-ab7c-0c36df32525d}</Project>
+        <Name>WebaoTest</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Webao\Webao.csproj">
+        <Project>{98e66f08-5b55-4757-9f8d-ec1c7a38ff12}</Project>
+        <Name>Webao</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

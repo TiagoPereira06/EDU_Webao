@@ -67,7 +67,6 @@ namespace DynWebao.DynBuilder
             ilGen.Emit(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle",
                 BindingFlags.Public | BindingFlags.Static) ?? throw new Exception());
             ilGen.Emit(OpCodes.Callvirt, typeof(IRequest).GetMethod("Get"));
-            ilGen.Emit(OpCodes.Castclass, methodInfo.Mapping.destType);
             GenResult(ilGen, methodInfo.Mapping);
             ilGen.Emit(OpCodes.Ret);
 
@@ -76,15 +75,26 @@ namespace DynWebao.DynBuilder
         private static void GenResult(ILGenerator ilGen, MappingAttribute mappingAttribute)
         {
             var property = mappingAttribute.destType;
-            var propertyNames = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
-            foreach (var propertyName in propertyNames)
+            if (!property.IsValueType)
             {
+                ilGen.Emit(OpCodes.Castclass, mappingAttribute.destType);
+            }
+            var propertyNames = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
+            for (var i = 0;i<propertyNames.Length;++i)
+            {
+                var propertyName = propertyNames[i];
                 if (property.IsValueType)
                 {
                     ilGen.DeclareLocal(property);
+                    if (i==0)
+                    {
+                        ilGen.Emit(OpCodes.Unbox_Any,property);
+                    }
+                    ilGen.Emit(OpCodes.Stloc,i+1);
+                    ilGen.Emit(OpCodes.Ldloca_S,i+1);
                 }
                 var aux = property?.GetProperty(propertyName);
-                ilGen.Emit(OpCodes.Callvirt, aux?.GetGetMethod());
+                ilGen.Emit(OpCodes.Call, aux?.GetGetMethod());
                 property = aux?.PropertyType;
             }
         }

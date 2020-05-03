@@ -43,6 +43,7 @@
         <Compile Include="DynBuilder\Emitter.cs" />
         <Compile Include="DynBuilder\MethodInformation.cs" />
         <Compile Include="DynBuilder\WebaoDynBuilder.cs" />
+        <Compile Include="IWebaos\IWebaoDynEpisode.cs" />
         <Compile Include="IWebaos\IWebaoDynTrack.cs" />
         <Compile Include="IWebaos\IWebaoDynArtist.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
