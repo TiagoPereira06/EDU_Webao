@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Webao;
-using Webao.Base;
 using Webao.Test.Dto.LastFm;
 
 namespace DynWebao
@@ -11,14 +10,14 @@ namespace DynWebao
         public ArtistWebaoDummy(IRequest req) : base(req){}
 
 
-        public Artist GetInfo(object name)
+        public Artist GetInfo(string name)
         {
             String path = "?method=artist.getinfo&artist={name}";
-            var dto = (DtoArtist) req.Get(CompletePath(path,new[] {name.ToString()}), typeof(DtoArtist));
+            DtoArtist dto = (DtoArtist) req.Get(CompletePath(path,new[] {name.ToString()}), typeof(DtoArtist));
             return dto.Artist;
         }
 
-        public List<Artist> Search(object name, object page)
+        public List<Artist> Search(string name, int page)
         {
             String path = "?method=artist.search&artist={name}&page={page}";
             DtoSearch dto = (DtoSearch) req.Get(CompletePath(path,new []{name.ToString(),page.ToString()}), typeof(DtoSearch));

@@ -1,0 +1,135 @@
+
+//  Microsoft (R) .NET Framework IL Disassembler.  Version 4.8.3928.0
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+
+// Metadata version: v4.0.30319
+.assembly extern DynWebao
+{
+  .ver 1:0:0:0
+}
+.assembly extern Webao
+{
+  .ver 1:0:0:0
+}
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 4:0:0:0
+}
+.assembly extern WebaoTest
+{
+  .ver 1:0:0:0
+}
+.assembly WebaoDynArtist
+{
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.module WebaoDynArtist
+// MVID: {DD53C6E7-9224-4277-A041-79B00A2E038D}
+.imagebase 0x00400000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x06D00000
+
+
+// =============== CLASS MEMBERS DECLARATION ===================
+
+.class public auto autochar WebaoDynArtist
+       extends [DynWebao]DynWebao.Base
+       implements [DynWebao]DynWebao.IWebaoDynArtist
+{
+  .method public specialname rtspecialname 
+          instance void  .ctor(class [Webao]Webao.IRequest A_1) cil managed
+  {
+    // Code size       8 (0x8)
+    .maxstack  2
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  call       instance void [DynWebao]DynWebao.Base::.ctor(class [Webao]Webao.IRequest)
+    IL_0007:  ret
+  } // end of method WebaoDynArtist::.ctor
+
+  .method public virtual instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist 
+          GetInfo(string A_1) cil managed
+  {
+    // Code size       72 (0x48)
+    .maxstack  6
+    .locals init (string V_0)
+    IL_0000:  ldstr      "\?method=artist.getinfo&artist={name}"
+    IL_0005:  stloc.0
+    IL_0006:  ldarg.0
+    IL_0007:  ldfld      class [Webao]Webao.IRequest [DynWebao]DynWebao.Base::req
+    IL_000c:  ldloc.0
+    IL_000d:  ldc.i4     0x1
+    IL_0012:  newarr     [mscorlib]System.String
+    IL_0017:  dup
+    IL_0018:  ldc.i4     0x0
+    IL_001d:  ldarg      A_1
+    IL_0021:  nop
+    IL_0022:  nop
+    IL_0023:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_0028:  stelem.ref
+    IL_0029:  call       string [DynWebao]DynWebao.Base::CompletePath(string,
+                                                                      string[])
+    IL_002e:  ldtoken    [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist
+    IL_0033:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0038:  callvirt   instance object [Webao]Webao.IRequest::Get(string,
+                                                                    class [mscorlib]System.Type)
+    IL_003d:  castclass  [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist
+    IL_0042:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist::get_Artist()
+    IL_0047:  ret
+  } // end of method WebaoDynArtist::GetInfo
+
+  .method public virtual instance class [mscorlib]System.Collections.Generic.List`1<class [WebaoTest]Webao.Test.Dto.LastFm.Artist> 
+          Search(string A_1,
+                 int32 A_2) cil managed
+  {
+    // Code size       99 (0x63)
+    .maxstack  6
+    .locals init (string V_0)
+    IL_0000:  ldstr      "\?method=artist.search&artist={name}&page={page}"
+    IL_0005:  stloc.0
+    IL_0006:  ldarg.0
+    IL_0007:  ldfld      class [Webao]Webao.IRequest [DynWebao]DynWebao.Base::req
+    IL_000c:  ldloc.0
+    IL_000d:  ldc.i4     0x2
+    IL_0012:  newarr     [mscorlib]System.String
+    IL_0017:  dup
+    IL_0018:  ldc.i4     0x0
+    IL_001d:  ldarg      A_1
+    IL_0021:  nop
+    IL_0022:  nop
+    IL_0023:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_0028:  stelem.ref
+    IL_0029:  dup
+    IL_002a:  ldc.i4     0x1
+    IL_002f:  ldarga.s   A_2
+    IL_0031:  nop
+    IL_0032:  nop
+    IL_0033:  nop
+    IL_0034:  call       instance string [mscorlib]System.Int32::ToString()
+    IL_0039:  stelem.ref
+    IL_003a:  call       string [DynWebao]DynWebao.Base::CompletePath(string,
+                                                                      string[])
+    IL_003f:  ldtoken    [WebaoTest]Webao.Test.Dto.LastFm.DtoSearch
+    IL_0044:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0049:  callvirt   instance object [Webao]Webao.IRequest::Get(string,
+                                                                    class [mscorlib]System.Type)
+    IL_004e:  castclass  [WebaoTest]Webao.Test.Dto.LastFm.DtoSearch
+    IL_0053:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.DtoResults [WebaoTest]Webao.Test.Dto.LastFm.DtoSearch::get_Results()
+    IL_0058:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.DtoArtistMatches [WebaoTest]Webao.Test.Dto.LastFm.DtoResults::get_ArtistMatches()
+    IL_005d:  callvirt   instance class [mscorlib]System.Collections.Generic.List`1<class [WebaoTest]Webao.Test.Dto.LastFm.Artist> [WebaoTest]Webao.Test.Dto.LastFm.DtoArtistMatches::get_Artist()
+    IL_0062:  ret
+  } // end of method WebaoDynArtist::Search
+
+} // end of class WebaoDynArtist
+
+
+// =============================================================
+
+// *********** DISASSEMBLY COMPLETE ***********************

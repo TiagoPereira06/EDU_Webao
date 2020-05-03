@@ -1,0 +1,1346 @@
+
+//  Microsoft (R) .NET Framework IL Disassembler.  Version 4.8.3928.0
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+
+// Metadata version: v4.0.30319
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 4:0:0:0
+}
+.assembly extern Webao
+{
+  .ver 1:0:0:0
+}
+.assembly extern WebaoTest
+{
+  .ver 1:0:0:0
+}
+.assembly extern System.Core
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 4:0:0:0
+}
+.assembly DynWebao
+{
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+                                                                                                             63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       // ceptionThrows.
+
+  // --- The following custom attribute is added automatically, do not uncomment -------
+  //  .custom instance void [mscorlib]System.Diagnostics.DebuggableAttribute::.ctor(valuetype [mscorlib]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 02 00 00 00 00 00 ) 
+
+  .custom instance void [mscorlib]System.Reflection.AssemblyTitleAttribute::.ctor(string) = ( 01 00 08 44 79 6E 57 65 62 61 6F 00 00 )          // ...DynWebao..
+  .custom instance void [mscorlib]System.Reflection.AssemblyDescriptionAttribute::.ctor(string) = ( 01 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Reflection.AssemblyConfigurationAttribute::.ctor(string) = ( 01 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Reflection.AssemblyCompanyAttribute::.ctor(string) = ( 01 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Reflection.AssemblyProductAttribute::.ctor(string) = ( 01 00 08 44 79 6E 57 65 62 61 6F 00 00 )          // ...DynWebao..
+  .custom instance void [mscorlib]System.Reflection.AssemblyCopyrightAttribute::.ctor(string) = ( 01 00 12 43 6F 70 79 72 69 67 68 74 20 C2 A9 20   // ...Copyright .. 
+                                                                                                  20 32 30 32 30 00 00 )                            //  2020..
+  .custom instance void [mscorlib]System.Reflection.AssemblyTrademarkAttribute::.ctor(string) = ( 01 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = ( 01 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.InteropServices.GuidAttribute::.ctor(string) = ( 01 00 24 31 35 36 44 42 31 44 35 2D 33 46 43 46   // ..$156DB1D5-3FCF
+                                                                                                  2D 34 33 34 30 2D 39 35 32 45 2D 43 36 45 41 46   // -4340-952E-C6EAF
+                                                                                                  46 37 41 38 43 37 39 00 00 )                      // F7A8C79..
+  .custom instance void [mscorlib]System.Reflection.AssemblyFileVersionAttribute::.ctor(string) = ( 01 00 07 31 2E 30 2E 30 2E 30 00 00 )             // ...1.0.0.0..
+  .custom instance void [mscorlib]System.Runtime.Versioning.TargetFrameworkAttribute::.ctor(string) = ( 01 00 1C 2E 4E 45 54 46 72 61 6D 65 77 6F 72 6B   // ....NETFramework
+                                                                                                        2C 56 65 72 73 69 6F 6E 3D 76 34 2E 37 2E 32 01   // ,Version=v4.7.2.
+                                                                                                        00 54 0E 14 46 72 61 6D 65 77 6F 72 6B 44 69 73   // .T..FrameworkDis
+                                                                                                        70 6C 61 79 4E 61 6D 65 14 2E 4E 45 54 20 46 72   // playName..NET Fr
+                                                                                                        61 6D 65 77 6F 72 6B 20 34 2E 37 2E 32 )          // amework 4.7.2
+  .hash algorithm 0x00008004
+  .ver 1:0:0:0
+}
+.module DynWebao.dll
+// MVID: {5D6FB1D7-EB23-4160-841E-73073D535A47}
+.imagebase 0x10000000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x05520000
+
+
+// =============== CLASS MEMBERS DECLARATION ===================
+
+.class public auto ansi beforefieldinit DynWebao.ArtistWebaoDummy
+       extends DynWebao.Base
+       implements DynWebao.IWebaoDynArtist
+{
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor(class [Webao]Webao.IRequest req) cil managed
+  {
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  call       instance void DynWebao.Base::.ctor(class [Webao]Webao.IRequest)
+    IL_0007:  ret
+  } // end of method ArtistWebaoDummy::.ctor
+
+  .method public hidebysig newslot virtual final 
+          instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist 
+          GetInfo(string name) cil managed
+  {
+    // Code size       59 (0x3b)
+    .maxstack  6
+    .locals init ([0] string path)
+    IL_0000:  ldstr      "\?method=artist.getinfo&artist={name}"
+    IL_0005:  stloc.0
+    IL_0006:  ldarg.0
+    IL_0007:  ldfld      class [Webao]Webao.IRequest DynWebao.Base::req
+    IL_000c:  ldloc.0
+    IL_000d:  ldc.i4.1
+    IL_000e:  newarr     [mscorlib]System.String
+    IL_0013:  dup
+    IL_0014:  ldc.i4.0
+    IL_0015:  ldarg.1
+    IL_0016:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_001b:  stelem.ref
+    IL_001c:  call       string DynWebao.Base::CompletePath(string,
+                                                            string[])
+    IL_0021:  ldtoken    [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist
+    IL_0026:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_002b:  callvirt   instance object [Webao]Webao.IRequest::Get(string,
+                                                                    class [mscorlib]System.Type)
+    IL_0030:  castclass  [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist
+    IL_0035:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist [WebaoTest]Webao.Test.Dto.LastFm.DtoArtist::get_Artist()
+    IL_003a:  ret
+  } // end of method ArtistWebaoDummy::GetInfo
+
+  .method public hidebysig newslot virtual final 
+          instance class [mscorlib]System.Collections.Generic.List`1<class [WebaoTest]Webao.Test.Dto.LastFm.Artist> 
+          Search(string name,
+                 int32 page) cil managed
+  {
+    // Code size       79 (0x4f)
+    .maxstack  6
+    .locals init ([0] string path)
+    IL_0000:  ldstr      "\?method=artist.search&artist={name}&page={page}"
+    IL_0005:  stloc.0
+    IL_0006:  ldarg.0
+    IL_0007:  ldfld      class [Webao]Webao.IRequest DynWebao.Base::req
+    IL_000c:  ldloc.0
+    IL_000d:  ldc.i4.2
+    IL_000e:  newarr     [mscorlib]System.String
+    IL_0013:  dup
+    IL_0014:  ldc.i4.0
+    IL_0015:  ldarg.1
+    IL_0016:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_001b:  stelem.ref
+    IL_001c:  dup
+    IL_001d:  ldc.i4.1
+    IL_001e:  ldarga.s   page
+    IL_0020:  call       instance string [mscorlib]System.Int32::ToString()
+    IL_0025:  stelem.ref
+    IL_0026:  call       string DynWebao.Base::CompletePath(string,
+                                                            string[])
+    IL_002b:  ldtoken    [WebaoTest]Webao.Test.Dto.LastFm.DtoSearch
+    IL_0030:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0035:  callvirt   instance object [Webao]Webao.IRequest::Get(string,
+                                                                    class [mscorlib]System.Type)
+    IL_003a:  castclass  [WebaoTest]Webao.Test.Dto.LastFm.DtoSearch
+    IL_003f:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.DtoResults [WebaoTest]Webao.Test.Dto.LastFm.DtoSearch::get_Results()
+    IL_0044:  callvirt   instance class [WebaoTest]Webao.Test.Dto.LastFm.DtoArtistMatches [WebaoTest]Webao.Test.Dto.LastFm.DtoResults::get_ArtistMatches()
+    IL_0049:  callvirt   instance class [mscorlib]System.Collections.Generic.List`1<class [WebaoTest]Webao.Test.Dto.LastFm.Artist> [WebaoTest]Webao.Test.Dto.LastFm.DtoArtistMatches::get_Artist()
+    IL_004e:  ret
+  } // end of method ArtistWebaoDummy::Search
+
+} // end of class DynWebao.ArtistWebaoDummy
+
+.class public abstract auto ansi beforefieldinit DynWebao.Base
+       extends [mscorlib]System.Object
+{
+  .class auto ansi serializable sealed nested private beforefieldinit '<>c'
+         extends [mscorlib]System.Object
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    .field public static initonly class DynWebao.Base/'<>c' '<>9'
+    .field public static class [mscorlib]System.Func`3<string,string,string> '<>9__2_0'
+    .method private hidebysig specialname rtspecialname static 
+            void  .cctor() cil managed
+    {
+      // Code size       11 (0xb)
+      .maxstack  8
+      IL_0000:  newobj     instance void DynWebao.Base/'<>c'::.ctor()
+      IL_0005:  stsfld     class DynWebao.Base/'<>c' DynWebao.Base/'<>c'::'<>9'
+      IL_000a:  ret
+    } // end of method '<>c'::.cctor
+
+    .method public hidebysig specialname rtspecialname 
+            instance void  .ctor() cil managed
+    {
+      // Code size       7 (0x7)
+      .maxstack  8
+      IL_0000:  ldarg.0
+      IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+      IL_0006:  ret
+    } // end of method '<>c'::.ctor
+
+    .method assembly hidebysig instance string 
+            '<CompletePath>b__2_0'(string current,
+                                   string arg) cil managed
+    {
+      // Code size       13 (0xd)
+      .maxstack  8
+      IL_0000:  ldarg.1
+      IL_0001:  ldarg.2
+      IL_0002:  callvirt   instance string [mscorlib]System.Object::ToString()
+      IL_0007:  call       string DynWebao.Base::FillPath(string,
+                                                          string)
+      IL_000c:  ret
+    } // end of method '<>c'::'<CompletePath>b__2_0'
+
+  } // end of class '<>c'
+
+  .field public class [Webao]Webao.IRequest req
+  .method family hidebysig specialname rtspecialname 
+          instance void  .ctor(class [Webao]Webao.IRequest req) cil managed
+  {
+    // Code size       14 (0xe)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ldarg.0
+    IL_0007:  ldarg.1
+    IL_0008:  stfld      class [Webao]Webao.IRequest DynWebao.Base::req
+    IL_000d:  ret
+  } // end of method Base::.ctor
+
+  .method family hidebysig static string 
+          CompletePath(string path,
+                       string[] fill) cil managed
+  {
+    // Code size       39 (0x27)
+    .maxstack  8
+    IL_0000:  ldarg.1
+    IL_0001:  ldarg.0
+    IL_0002:  ldsfld     class [mscorlib]System.Func`3<string,string,string> DynWebao.Base/'<>c'::'<>9__2_0'
+    IL_0007:  dup
+    IL_0008:  brtrue.s   IL_0021
+
+    IL_000a:  pop
+    IL_000b:  ldsfld     class DynWebao.Base/'<>c' DynWebao.Base/'<>c'::'<>9'
+    IL_0010:  ldftn      instance string DynWebao.Base/'<>c'::'<CompletePath>b__2_0'(string,
+                                                                                     string)
+    IL_0016:  newobj     instance void class [mscorlib]System.Func`3<string,string,string>::.ctor(object,
+                                                                                                  native int)
+    IL_001b:  dup
+    IL_001c:  stsfld     class [mscorlib]System.Func`3<string,string,string> DynWebao.Base/'<>c'::'<>9__2_0'
+    IL_0021:  call       !!1 [System.Core]System.Linq.Enumerable::Aggregate<string,string>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
+                                                                                           !!1,
+                                                                                           class [mscorlib]System.Func`3<!!1,!!0,!!1>)
+    IL_0026:  ret
+  } // end of method Base::CompletePath
+
+  .method private hidebysig static string 
+          FillPath(string path,
+                   string fill) cil managed
+  {
+    // Code size       38 (0x26)
+    .maxstack  5
+    .locals init ([0] int32 l,
+             [1] int32 r)
+    IL_0000:  ldarg.0
+    IL_0001:  ldc.i4.s   123
+    IL_0003:  callvirt   instance int32 [mscorlib]System.String::IndexOf(char)
+    IL_0008:  stloc.0
+    IL_0009:  ldarg.0
+    IL_000a:  ldc.i4.s   125
+    IL_000c:  callvirt   instance int32 [mscorlib]System.String::IndexOf(char)
+    IL_0011:  ldc.i4.1
+    IL_0012:  add
+    IL_0013:  stloc.1
+    IL_0014:  ldarg.0
+    IL_0015:  ldarg.0
+    IL_0016:  ldloc.0
+    IL_0017:  ldloc.1
+    IL_0018:  ldloc.0
+    IL_0019:  sub
+    IL_001a:  callvirt   instance string [mscorlib]System.String::Substring(int32,
+                                                                            int32)
+    IL_001f:  ldarg.1
+    IL_0020:  callvirt   instance string [mscorlib]System.String::Replace(string,
+                                                                          string)
+    IL_0025:  ret
+  } // end of method Base::FillPath
+
+} // end of class DynWebao.Base
+
+.class public auto ansi beforefieldinit DynWebao.Emitter
+       extends [mscorlib]System.Object
+{
+  .class auto ansi serializable sealed nested private beforefieldinit '<>c'
+         extends [mscorlib]System.Object
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    .field public static initonly class DynWebao.Emitter/'<>c' '<>9'
+    .field public static class [mscorlib]System.Func`2<string,bool> '<>9__2_0'
+    .method private hidebysig specialname rtspecialname static 
+            void  .cctor() cil managed
+    {
+      // Code size       11 (0xb)
+      .maxstack  8
+      IL_0000:  newobj     instance void DynWebao.Emitter/'<>c'::.ctor()
+      IL_0005:  stsfld     class DynWebao.Emitter/'<>c' DynWebao.Emitter/'<>c'::'<>9'
+      IL_000a:  ret
+    } // end of method '<>c'::.cctor
+
+    .method public hidebysig specialname rtspecialname 
+            instance void  .ctor() cil managed
+    {
+      // Code size       7 (0x7)
+      .maxstack  8
+      IL_0000:  ldarg.0
+      IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+      IL_0006:  ret
+    } // end of method '<>c'::.ctor
+
+    .method assembly hidebysig instance bool 
+            '<GenResult>b__2_0'(string s) cil managed
+    {
+      // Code size       15 (0xf)
+      .maxstack  8
+      IL_0000:  ldarg.1
+      IL_0001:  ldstr      ""
+      IL_0006:  callvirt   instance bool [mscorlib]System.String::Equals(string)
+      IL_000b:  ldc.i4.0
+      IL_000c:  ceq
+      IL_000e:  ret
+    } // end of method '<>c'::'<GenResult>b__2_0'
+
+  } // end of class '<>c'
+
+  .method public hidebysig instance void 
+          EmitConstructor(class [mscorlib]System.Reflection.Emit.TypeBuilder typeBuilder,
+                          class [mscorlib]System.Reflection.ConstructorInfo baseCtor) cil managed
+  {
+    // Code size       82 (0x52)
+    .maxstack  7
+    IL_0000:  ldarg.1
+    IL_0001:  ldc.i4     0x1806
+    IL_0006:  ldc.i4.s   32
+    IL_0008:  ldc.i4.1
+    IL_0009:  newarr     [mscorlib]System.Type
+    IL_000e:  dup
+    IL_000f:  ldc.i4.0
+    IL_0010:  ldtoken    [Webao]Webao.IRequest
+    IL_0015:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_001a:  stelem.ref
+    IL_001b:  callvirt   instance class [mscorlib]System.Reflection.Emit.ConstructorBuilder [mscorlib]System.Reflection.Emit.TypeBuilder::DefineConstructor(valuetype [mscorlib]System.Reflection.MethodAttributes,
+                                                                                                                                                            valuetype [mscorlib]System.Reflection.CallingConventions,
+                                                                                                                                                            class [mscorlib]System.Type[])
+    IL_0020:  callvirt   instance class [mscorlib]System.Reflection.Emit.ILGenerator [mscorlib]System.Reflection.Emit.ConstructorBuilder::GetILGenerator()
+    IL_0025:  dup
+    IL_0026:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldarg_0
+    IL_002b:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_0030:  dup
+    IL_0031:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldarg_1
+    IL_0036:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_003b:  dup
+    IL_003c:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Call
+    IL_0041:  ldarg.2
+    IL_0042:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.ConstructorInfo)
+    IL_0047:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ret
+    IL_004c:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_0051:  ret
+  } // end of method Emitter::EmitConstructor
+
+  .method public hidebysig instance void 
+          EmitMethod(class [mscorlib]System.Reflection.Emit.TypeBuilder typeBuilder,
+                     class DynWebao.MethodInformation methodInfo) cil managed
+  {
+    // Code size       544 (0x220)
+    .maxstack  5
+    .locals init ([0] class [mscorlib]System.Reflection.Emit.ILGenerator ilGen,
+             [1] int32 argsCount,
+             [2] int32 i,
+             [3] class [mscorlib]System.Reflection.MethodInfo 'method',
+             [4] int32 index)
+    IL_0000:  ldarg.1
+    IL_0001:  ldarg.2
+    IL_0002:  callvirt   instance string DynWebao.MethodInformation::get_Name()
+    IL_0007:  ldc.i4.s   70
+    IL_0009:  ldarg.2
+    IL_000a:  callvirt   instance class [mscorlib]System.Type DynWebao.MethodInformation::get_ReturnType()
+    IL_000f:  ldarg.2
+    IL_0010:  callvirt   instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::get_Args()
+    IL_0015:  call       !!0[] [System.Core]System.Linq.Enumerable::ToArray<class [mscorlib]System.Type>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>)
+    IL_001a:  callvirt   instance class [mscorlib]System.Reflection.Emit.MethodBuilder [mscorlib]System.Reflection.Emit.TypeBuilder::DefineMethod(string,
+                                                                                                                                                  valuetype [mscorlib]System.Reflection.MethodAttributes,
+                                                                                                                                                  class [mscorlib]System.Type,
+                                                                                                                                                  class [mscorlib]System.Type[])
+    IL_001f:  callvirt   instance class [mscorlib]System.Reflection.Emit.ILGenerator [mscorlib]System.Reflection.Emit.MethodBuilder::GetILGenerator()
+    IL_0024:  stloc.0
+    IL_0025:  ldloc.0
+    IL_0026:  ldtoken    [mscorlib]System.String
+    IL_002b:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0030:  callvirt   instance class [mscorlib]System.Reflection.Emit.LocalBuilder [mscorlib]System.Reflection.Emit.ILGenerator::DeclareLocal(class [mscorlib]System.Type)
+    IL_0035:  pop
+    IL_0036:  ldloc.0
+    IL_0037:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldstr
+    IL_003c:  ldarg.2
+    IL_003d:  callvirt   instance class [Webao]Webao.Attributes.GetAttribute DynWebao.MethodInformation::get_Get()
+    IL_0042:  ldfld      string [Webao]Webao.Attributes.GetAttribute::path
+    IL_0047:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          string)
+    IL_004c:  ldloc.0
+    IL_004d:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Stloc_0
+    IL_0052:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_0057:  ldloc.0
+    IL_0058:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldarg_0
+    IL_005d:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_0062:  ldloc.0
+    IL_0063:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldfld
+    IL_0068:  ldtoken    DynWebao.Base
+    IL_006d:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0072:  ldstr      "req"
+    IL_0077:  call       instance class [mscorlib]System.Reflection.FieldInfo [mscorlib]System.Type::GetField(string)
+    IL_007c:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.FieldInfo)
+    IL_0081:  ldloc.0
+    IL_0082:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldloc_0
+    IL_0087:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_008c:  ldloc.0
+    IL_008d:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldc_I4
+    IL_0092:  ldarg.2
+    IL_0093:  callvirt   instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::get_Args()
+    IL_0098:  callvirt   instance int32 class [mscorlib]System.Collections.Generic.ICollection`1<class [mscorlib]System.Type>::get_Count()
+    IL_009d:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          int32)
+    IL_00a2:  ldloc.0
+    IL_00a3:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Newarr
+    IL_00a8:  ldtoken    [mscorlib]System.String
+    IL_00ad:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_00b2:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Type)
+    IL_00b7:  ldloc.0
+    IL_00b8:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Dup
+    IL_00bd:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_00c2:  ldarg.2
+    IL_00c3:  callvirt   instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::get_Args()
+    IL_00c8:  callvirt   instance int32 class [mscorlib]System.Collections.Generic.ICollection`1<class [mscorlib]System.Type>::get_Count()
+    IL_00cd:  stloc.1
+    IL_00ce:  ldc.i4.0
+    IL_00cf:  stloc.2
+    IL_00d0:  br         IL_016b
+
+    IL_00d5:  ldloc.0
+    IL_00d6:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldc_I4
+    IL_00db:  ldloc.2
+    IL_00dc:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          int32)
+    IL_00e1:  ldtoken    [mscorlib]System.Object
+    IL_00e6:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_00eb:  ldstr      "ToString"
+    IL_00f0:  ldsfld     class [mscorlib]System.Type[] [mscorlib]System.Type::EmptyTypes
+    IL_00f5:  call       instance class [mscorlib]System.Reflection.MethodInfo [mscorlib]System.Type::GetMethod(string,
+                                                                                                                class [mscorlib]System.Type[])
+    IL_00fa:  stloc.3
+    IL_00fb:  ldloc.2
+    IL_00fc:  ldc.i4.1
+    IL_00fd:  add
+    IL_00fe:  stloc.s    index
+    IL_0100:  ldarg.2
+    IL_0101:  callvirt   instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::get_Args()
+    IL_0106:  ldloc.2
+    IL_0107:  callvirt   instance !0 class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type>::get_Item(int32)
+    IL_010c:  callvirt   instance bool [mscorlib]System.Type::get_IsValueType()
+    IL_0111:  brfalse.s  IL_012e
+
+    IL_0113:  ldloc.0
+    IL_0114:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldarga_S
+    IL_0119:  ldloc.s    index
+    IL_011b:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          int32)
+    IL_0120:  ldloc.0
+    IL_0121:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Call
+    IL_0126:  ldloc.3
+    IL_0127:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.MethodInfo)
+    IL_012c:  br.s       IL_0147
+
+    IL_012e:  ldloc.0
+    IL_012f:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldarg
+    IL_0134:  ldloc.s    index
+    IL_0136:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          int32)
+    IL_013b:  ldloc.0
+    IL_013c:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Callvirt
+    IL_0141:  ldloc.3
+    IL_0142:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.MethodInfo)
+    IL_0147:  ldloc.0
+    IL_0148:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Stelem_Ref
+    IL_014d:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_0152:  ldloc.2
+    IL_0153:  ldloc.1
+    IL_0154:  ldc.i4.1
+    IL_0155:  sub
+    IL_0156:  beq.s      IL_0167
+
+    IL_0158:  ldloc.1
+    IL_0159:  ldc.i4.1
+    IL_015a:  ble.s      IL_0167
+
+    IL_015c:  ldloc.0
+    IL_015d:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Dup
+    IL_0162:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_0167:  ldloc.2
+    IL_0168:  ldc.i4.1
+    IL_0169:  add
+    IL_016a:  stloc.2
+    IL_016b:  ldloc.2
+    IL_016c:  ldloc.1
+    IL_016d:  blt        IL_00d5
+
+    IL_0172:  ldloc.0
+    IL_0173:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Call
+    IL_0178:  ldtoken    DynWebao.Base
+    IL_017d:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0182:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<class [mscorlib]System.Reflection.MethodInfo> [mscorlib]System.Reflection.RuntimeReflectionExtensions::GetRuntimeMethods(class [mscorlib]System.Type)
+    IL_0187:  ldc.i4.0
+    IL_0188:  call       !!0 [System.Core]System.Linq.Enumerable::ElementAt<class [mscorlib]System.Reflection.MethodInfo>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
+                                                                                                                          int32)
+    IL_018d:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.MethodInfo)
+    IL_0192:  ldloc.0
+    IL_0193:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ldtoken
+    IL_0198:  ldarg.2
+    IL_0199:  callvirt   instance class [Webao]Webao.Attributes.MappingAttribute DynWebao.MethodInformation::get_Mapping()
+    IL_019e:  ldfld      class [mscorlib]System.Type [Webao]Webao.Attributes.MappingAttribute::destType
+    IL_01a3:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Type)
+    IL_01a8:  ldloc.0
+    IL_01a9:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Call
+    IL_01ae:  ldtoken    [mscorlib]System.Type
+    IL_01b3:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_01b8:  ldstr      "GetTypeFromHandle"
+    IL_01bd:  ldc.i4.s   24
+    IL_01bf:  call       instance class [mscorlib]System.Reflection.MethodInfo [mscorlib]System.Type::GetMethod(string,
+                                                                                                                valuetype [mscorlib]System.Reflection.BindingFlags)
+    IL_01c4:  dup
+    IL_01c5:  brtrue.s   IL_01ce
+
+    IL_01c7:  pop
+    IL_01c8:  newobj     instance void [mscorlib]System.Exception::.ctor()
+    IL_01cd:  throw
+
+    IL_01ce:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.MethodInfo)
+    IL_01d3:  ldloc.0
+    IL_01d4:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Callvirt
+    IL_01d9:  ldtoken    [Webao]Webao.IRequest
+    IL_01de:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_01e3:  ldstr      "Get"
+    IL_01e8:  call       instance class [mscorlib]System.Reflection.MethodInfo [mscorlib]System.Type::GetMethod(string)
+    IL_01ed:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.MethodInfo)
+    IL_01f2:  ldloc.0
+    IL_01f3:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Castclass
+    IL_01f8:  ldarg.2
+    IL_01f9:  callvirt   instance class [Webao]Webao.Attributes.MappingAttribute DynWebao.MethodInformation::get_Mapping()
+    IL_01fe:  ldfld      class [mscorlib]System.Type [Webao]Webao.Attributes.MappingAttribute::destType
+    IL_0203:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Type)
+    IL_0208:  ldloc.0
+    IL_0209:  ldarg.2
+    IL_020a:  callvirt   instance class [Webao]Webao.Attributes.MappingAttribute DynWebao.MethodInformation::get_Mapping()
+    IL_020f:  call       void DynWebao.Emitter::GenResult(class [mscorlib]System.Reflection.Emit.ILGenerator,
+                                                          class [Webao]Webao.Attributes.MappingAttribute)
+    IL_0214:  ldloc.0
+    IL_0215:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Ret
+    IL_021a:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode)
+    IL_021f:  ret
+  } // end of method Emitter::EmitMethod
+
+  .method private hidebysig static void  GenResult(class [mscorlib]System.Reflection.Emit.ILGenerator ilGen,
+                                                   class [Webao]Webao.Attributes.MappingAttribute mappingAttribute) cil managed
+  {
+    // Code size       145 (0x91)
+    .maxstack  5
+    .locals init ([0] class [mscorlib]System.Type 'property',
+             [1] string[] V_1,
+             [2] int32 V_2,
+             [3] string propertyName,
+             [4] class [mscorlib]System.Reflection.PropertyInfo aux)
+    IL_0000:  ldarg.1
+    IL_0001:  ldfld      class [mscorlib]System.Type [Webao]Webao.Attributes.MappingAttribute::destType
+    IL_0006:  stloc.0
+    IL_0007:  ldarg.1
+    IL_0008:  ldfld      string [Webao]Webao.Attributes.MappingAttribute::path
+    IL_000d:  ldc.i4.1
+    IL_000e:  newarr     [mscorlib]System.Char
+    IL_0013:  dup
+    IL_0014:  ldc.i4.0
+    IL_0015:  ldc.i4.s   46
+    IL_0017:  stelem.i2
+    IL_0018:  callvirt   instance string[] [mscorlib]System.String::Split(char[])
+    IL_001d:  ldsfld     class [mscorlib]System.Func`2<string,bool> DynWebao.Emitter/'<>c'::'<>9__2_0'
+    IL_0022:  dup
+    IL_0023:  brtrue.s   IL_003c
+
+    IL_0025:  pop
+    IL_0026:  ldsfld     class DynWebao.Emitter/'<>c' DynWebao.Emitter/'<>c'::'<>9'
+    IL_002b:  ldftn      instance bool DynWebao.Emitter/'<>c'::'<GenResult>b__2_0'(string)
+    IL_0031:  newobj     instance void class [mscorlib]System.Func`2<string,bool>::.ctor(object,
+                                                                                         native int)
+    IL_0036:  dup
+    IL_0037:  stsfld     class [mscorlib]System.Func`2<string,bool> DynWebao.Emitter/'<>c'::'<>9__2_0'
+    IL_003c:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0> [System.Core]System.Linq.Enumerable::Where<string>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
+                                                                                                                                          class [mscorlib]System.Func`2<!!0,bool>)
+    IL_0041:  call       !!0[] [System.Core]System.Linq.Enumerable::ToArray<string>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>)
+    IL_0046:  stloc.1
+    IL_0047:  ldc.i4.0
+    IL_0048:  stloc.2
+    IL_0049:  br.s       IL_008a
+
+    IL_004b:  ldloc.1
+    IL_004c:  ldloc.2
+    IL_004d:  ldelem.ref
+    IL_004e:  stloc.3
+    IL_004f:  ldloc.0
+    IL_0050:  brtrue.s   IL_0055
+
+    IL_0052:  ldnull
+    IL_0053:  br.s       IL_005c
+
+    IL_0055:  ldloc.0
+    IL_0056:  ldloc.3
+    IL_0057:  call       instance class [mscorlib]System.Reflection.PropertyInfo [mscorlib]System.Type::GetProperty(string)
+    IL_005c:  stloc.s    aux
+    IL_005e:  ldarg.0
+    IL_005f:  ldsfld     valuetype [mscorlib]System.Reflection.Emit.OpCode [mscorlib]System.Reflection.Emit.OpCodes::Callvirt
+    IL_0064:  ldloc.s    aux
+    IL_0066:  brtrue.s   IL_006b
+
+    IL_0068:  ldnull
+    IL_0069:  br.s       IL_0072
+
+    IL_006b:  ldloc.s    aux
+    IL_006d:  call       instance class [mscorlib]System.Reflection.MethodInfo [mscorlib]System.Reflection.PropertyInfo::GetGetMethod()
+    IL_0072:  callvirt   instance void [mscorlib]System.Reflection.Emit.ILGenerator::Emit(valuetype [mscorlib]System.Reflection.Emit.OpCode,
+                                                                                          class [mscorlib]System.Reflection.MethodInfo)
+    IL_0077:  ldloc.s    aux
+    IL_0079:  brtrue.s   IL_007e
+
+    IL_007b:  ldnull
+    IL_007c:  br.s       IL_0085
+
+    IL_007e:  ldloc.s    aux
+    IL_0080:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Reflection.PropertyInfo::get_PropertyType()
+    IL_0085:  stloc.0
+    IL_0086:  ldloc.2
+    IL_0087:  ldc.i4.1
+    IL_0088:  add
+    IL_0089:  stloc.2
+    IL_008a:  ldloc.2
+    IL_008b:  ldloc.1
+    IL_008c:  ldlen
+    IL_008d:  conv.i4
+    IL_008e:  blt.s      IL_004b
+
+    IL_0090:  ret
+  } // end of method Emitter::GenResult
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method Emitter::.ctor
+
+} // end of class DynWebao.Emitter
+
+.class public auto ansi beforefieldinit DynWebao.BuilderHelper
+       extends [mscorlib]System.Object
+{
+  .class auto ansi serializable sealed nested private beforefieldinit '<>c'
+         extends [mscorlib]System.Object
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    .field public static initonly class DynWebao.BuilderHelper/'<>c' '<>9'
+    .field public static class [mscorlib]System.Func`2<class [mscorlib]System.Reflection.ParameterInfo,class [mscorlib]System.Type> '<>9__4_0'
+    .method private hidebysig specialname rtspecialname static 
+            void  .cctor() cil managed
+    {
+      // Code size       11 (0xb)
+      .maxstack  8
+      IL_0000:  newobj     instance void DynWebao.BuilderHelper/'<>c'::.ctor()
+      IL_0005:  stsfld     class DynWebao.BuilderHelper/'<>c' DynWebao.BuilderHelper/'<>c'::'<>9'
+      IL_000a:  ret
+    } // end of method '<>c'::.cctor
+
+    .method public hidebysig specialname rtspecialname 
+            instance void  .ctor() cil managed
+    {
+      // Code size       7 (0x7)
+      .maxstack  8
+      IL_0000:  ldarg.0
+      IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+      IL_0006:  ret
+    } // end of method '<>c'::.ctor
+
+    .method assembly hidebysig instance class [mscorlib]System.Type 
+            '<ProcessMethod>b__4_0'(class [mscorlib]System.Reflection.ParameterInfo arg) cil managed
+    {
+      // Code size       7 (0x7)
+      .maxstack  8
+      IL_0000:  ldarg.1
+      IL_0001:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Reflection.ParameterInfo::get_ParameterType()
+      IL_0006:  ret
+    } // end of method '<>c'::'<ProcessMethod>b__4_0'
+
+  } // end of class '<>c'
+
+  .field public class [mscorlib]System.Reflection.Emit.TypeBuilder TypeBuilder
+  .field private class [mscorlib]System.Reflection.Emit.ModuleBuilder moduleBuilder
+  .field private class [mscorlib]System.Reflection.Emit.AssemblyBuilder asmBuilder
+  .field private string filename
+  .method public hidebysig instance class DynWebao.MethodInformation 
+          ProcessMethod(class [mscorlib]System.Reflection.MethodInfo 'method') cil managed
+  {
+    // Code size       206 (0xce)
+    .maxstack  3
+    .locals init ([0] class [Webao]Webao.Attributes.MappingAttribute mappingAttribute,
+             [1] class [Webao]Webao.Attributes.GetAttribute getAttribute,
+             [2] class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> args,
+             [3] class DynWebao.MethodInformation info,
+             [4] class [mscorlib]System.Collections.Generic.IEnumerator`1<class [mscorlib]System.Attribute> V_4,
+             [5] class [mscorlib]System.Attribute attr,
+             [6] class [Webao]Webao.Attributes.MappingAttribute ma,
+             [7] class [Webao]Webao.Attributes.GetAttribute ga)
+    IL_0000:  ldnull
+    IL_0001:  stloc.0
+    IL_0002:  ldnull
+    IL_0003:  stloc.1
+    IL_0004:  ldarg.1
+    IL_0005:  callvirt   instance class [mscorlib]System.Reflection.ParameterInfo[] [mscorlib]System.Reflection.MethodBase::GetParameters()
+    IL_000a:  ldsfld     class [mscorlib]System.Func`2<class [mscorlib]System.Reflection.ParameterInfo,class [mscorlib]System.Type> DynWebao.BuilderHelper/'<>c'::'<>9__4_0'
+    IL_000f:  dup
+    IL_0010:  brtrue.s   IL_0029
+
+    IL_0012:  pop
+    IL_0013:  ldsfld     class DynWebao.BuilderHelper/'<>c' DynWebao.BuilderHelper/'<>c'::'<>9'
+    IL_0018:  ldftn      instance class [mscorlib]System.Type DynWebao.BuilderHelper/'<>c'::'<ProcessMethod>b__4_0'(class [mscorlib]System.Reflection.ParameterInfo)
+    IL_001e:  newobj     instance void class [mscorlib]System.Func`2<class [mscorlib]System.Reflection.ParameterInfo,class [mscorlib]System.Type>::.ctor(object,
+                                                                                                                                                         native int)
+    IL_0023:  dup
+    IL_0024:  stsfld     class [mscorlib]System.Func`2<class [mscorlib]System.Reflection.ParameterInfo,class [mscorlib]System.Type> DynWebao.BuilderHelper/'<>c'::'<>9__4_0'
+    IL_0029:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<!!1> [System.Core]System.Linq.Enumerable::Select<class [mscorlib]System.Reflection.ParameterInfo,class [mscorlib]System.Type>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
+                                                                                                                                                                                                                class [mscorlib]System.Func`2<!!0,!!1>)
+    IL_002e:  call       class [mscorlib]System.Collections.Generic.List`1<!!0> [System.Core]System.Linq.Enumerable::ToList<class [mscorlib]System.Type>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>)
+    IL_0033:  stloc.2
+    IL_0034:  ldarg.1
+    IL_0035:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0> [mscorlib]System.Reflection.CustomAttributeExtensions::GetCustomAttributes<class [mscorlib]System.Attribute>(class [mscorlib]System.Reflection.MemberInfo)
+    IL_003a:  callvirt   instance class [mscorlib]System.Collections.Generic.IEnumerator`1<!0> class [mscorlib]System.Collections.Generic.IEnumerable`1<class [mscorlib]System.Attribute>::GetEnumerator()
+    IL_003f:  stloc.s    V_4
+    .try
+    {
+      IL_0041:  br.s       IL_0070
+
+      IL_0043:  ldloc.s    V_4
+      IL_0045:  callvirt   instance !0 class [mscorlib]System.Collections.Generic.IEnumerator`1<class [mscorlib]System.Attribute>::get_Current()
+      IL_004a:  stloc.s    attr
+      IL_004c:  ldloc.s    attr
+      IL_004e:  isinst     [Webao]Webao.Attributes.MappingAttribute
+      IL_0053:  stloc.s    ma
+      IL_0055:  ldloc.s    ma
+      IL_0057:  brtrue.s   IL_0068
+
+      IL_0059:  ldloc.s    attr
+      IL_005b:  isinst     [Webao]Webao.Attributes.GetAttribute
+      IL_0060:  stloc.s    ga
+      IL_0062:  ldloc.s    ga
+      IL_0064:  brtrue.s   IL_006d
+
+      IL_0066:  br.s       IL_0070
+
+      IL_0068:  ldloc.s    ma
+      IL_006a:  stloc.0
+      IL_006b:  br.s       IL_0070
+
+      IL_006d:  ldloc.s    ga
+      IL_006f:  stloc.1
+      IL_0070:  ldloc.s    V_4
+      IL_0072:  callvirt   instance bool [mscorlib]System.Collections.IEnumerator::MoveNext()
+      IL_0077:  brtrue.s   IL_0043
+
+      IL_0079:  leave.s    IL_0087
+
+    }  // end .try
+    finally
+    {
+      IL_007b:  ldloc.s    V_4
+      IL_007d:  brfalse.s  IL_0086
+
+      IL_007f:  ldloc.s    V_4
+      IL_0081:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_0086:  endfinally
+    }  // end handler
+    IL_0087:  newobj     instance void DynWebao.MethodInformation::.ctor()
+    IL_008c:  dup
+    IL_008d:  ldarg.1
+    IL_008e:  callvirt   instance string [mscorlib]System.Reflection.MemberInfo::get_Name()
+    IL_0093:  callvirt   instance void DynWebao.MethodInformation::set_Name(string)
+    IL_0098:  dup
+    IL_0099:  ldarg.1
+    IL_009a:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Reflection.MethodInfo::get_ReturnType()
+    IL_009f:  callvirt   instance void DynWebao.MethodInformation::set_ReturnType(class [mscorlib]System.Type)
+    IL_00a4:  dup
+    IL_00a5:  ldloc.2
+    IL_00a6:  callvirt   instance void DynWebao.MethodInformation::set_Args(class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type>)
+    IL_00ab:  stloc.3
+    IL_00ac:  ldloc.0
+    IL_00ad:  brfalse.s  IL_00b6
+
+    IL_00af:  ldloc.3
+    IL_00b0:  ldloc.0
+    IL_00b1:  callvirt   instance void DynWebao.MethodInformation::set_Mapping(class [Webao]Webao.Attributes.MappingAttribute)
+    IL_00b6:  ldloc.1
+    IL_00b7:  brfalse.s  IL_00c0
+
+    IL_00b9:  ldloc.3
+    IL_00ba:  ldloc.1
+    IL_00bb:  callvirt   instance void DynWebao.MethodInformation::set_Get(class [Webao]Webao.Attributes.GetAttribute)
+    IL_00c0:  ldloc.3
+    IL_00c1:  ldarg.1
+    IL_00c2:  callvirt   instance valuetype [mscorlib]System.Reflection.MethodAttributes [mscorlib]System.Reflection.MethodBase::get_Attributes()
+    IL_00c7:  callvirt   instance void DynWebao.MethodInformation::set_MethodAttrs(valuetype [mscorlib]System.Reflection.MethodAttributes)
+    IL_00cc:  ldloc.3
+    IL_00cd:  ret
+  } // end of method BuilderHelper::ProcessMethod
+
+  .method public hidebysig instance void 
+          SetTypeBuilder(class [mscorlib]System.Type interfaceType) cil managed
+  {
+    // Code size       58 (0x3a)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.0
+    IL_0002:  ldfld      class [mscorlib]System.Reflection.Emit.ModuleBuilder DynWebao.BuilderHelper::moduleBuilder
+    IL_0007:  ldarg.1
+    IL_0008:  callvirt   instance string [mscorlib]System.Reflection.MemberInfo::get_Name()
+    IL_000d:  ldc.i4.0
+    IL_000e:  ldc.i4.1
+    IL_000f:  callvirt   instance string [mscorlib]System.String::Remove(int32,
+                                                                         int32)
+    IL_0014:  ldc.i4     0x20001
+    IL_0019:  ldtoken    DynWebao.Base
+    IL_001e:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_0023:  callvirt   instance class [mscorlib]System.Reflection.Emit.TypeBuilder [mscorlib]System.Reflection.Emit.ModuleBuilder::DefineType(string,
+                                                                                                                                                valuetype [mscorlib]System.Reflection.TypeAttributes,
+                                                                                                                                                class [mscorlib]System.Type)
+    IL_0028:  stfld      class [mscorlib]System.Reflection.Emit.TypeBuilder DynWebao.BuilderHelper::TypeBuilder
+    IL_002d:  ldarg.0
+    IL_002e:  ldfld      class [mscorlib]System.Reflection.Emit.TypeBuilder DynWebao.BuilderHelper::TypeBuilder
+    IL_0033:  ldarg.1
+    IL_0034:  callvirt   instance void [mscorlib]System.Reflection.Emit.TypeBuilder::AddInterfaceImplementation(class [mscorlib]System.Type)
+    IL_0039:  ret
+  } // end of method BuilderHelper::SetTypeBuilder
+
+  .method public hidebysig instance void 
+          SetModuleBuilder(string name) cil managed
+  {
+    // Code size       85 (0x55)
+    .maxstack  4
+    .locals init ([0] class [mscorlib]System.Reflection.AssemblyName asmName,
+             [1] class [mscorlib]System.AppDomain appDom)
+    IL_0000:  newobj     instance void [mscorlib]System.Reflection.AssemblyName::.ctor()
+    IL_0005:  dup
+    IL_0006:  ldarg.1
+    IL_0007:  callvirt   instance void [mscorlib]System.Reflection.AssemblyName::set_Name(string)
+    IL_000c:  stloc.0
+    IL_000d:  call       class [mscorlib]System.AppDomain [mscorlib]System.Threading.Thread::GetDomain()
+    IL_0012:  stloc.1
+    IL_0013:  ldarg.0
+    IL_0014:  ldloc.1
+    IL_0015:  ldloc.0
+    IL_0016:  ldc.i4.3
+    IL_0017:  callvirt   instance class [mscorlib]System.Reflection.Emit.AssemblyBuilder [mscorlib]System.AppDomain::DefineDynamicAssembly(class [mscorlib]System.Reflection.AssemblyName,
+                                                                                                                                           valuetype [mscorlib]System.Reflection.Emit.AssemblyBuilderAccess)
+    IL_001c:  stfld      class [mscorlib]System.Reflection.Emit.AssemblyBuilder DynWebao.BuilderHelper::asmBuilder
+    IL_0021:  ldarg.0
+    IL_0022:  ldloc.0
+    IL_0023:  callvirt   instance string [mscorlib]System.Reflection.AssemblyName::get_Name()
+    IL_0028:  ldstr      ".dll"
+    IL_002d:  call       string [mscorlib]System.String::Concat(string,
+                                                                string)
+    IL_0032:  stfld      string DynWebao.BuilderHelper::filename
+    IL_0037:  ldarg.0
+    IL_0038:  ldarg.0
+    IL_0039:  ldfld      class [mscorlib]System.Reflection.Emit.AssemblyBuilder DynWebao.BuilderHelper::asmBuilder
+    IL_003e:  ldloc.0
+    IL_003f:  callvirt   instance string [mscorlib]System.Reflection.AssemblyName::get_Name()
+    IL_0044:  ldarg.0
+    IL_0045:  ldfld      string DynWebao.BuilderHelper::filename
+    IL_004a:  callvirt   instance class [mscorlib]System.Reflection.Emit.ModuleBuilder [mscorlib]System.Reflection.Emit.AssemblyBuilder::DefineDynamicModule(string,
+                                                                                                                                                             string)
+    IL_004f:  stfld      class [mscorlib]System.Reflection.Emit.ModuleBuilder DynWebao.BuilderHelper::moduleBuilder
+    IL_0054:  ret
+  } // end of method BuilderHelper::SetModuleBuilder
+
+  .method public hidebysig instance class [mscorlib]System.Reflection.ConstructorInfo 
+          GetBaseCtor() cil managed
+  {
+    // Code size       26 (0x1a)
+    .maxstack  8
+    IL_0000:  ldtoken    DynWebao.Base
+    IL_0005:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
+    IL_000a:  call       class [mscorlib]System.Reflection.TypeInfo [mscorlib]System.Reflection.IntrospectionExtensions::GetTypeInfo(class [mscorlib]System.Type)
+    IL_000f:  callvirt   instance class [mscorlib]System.Collections.Generic.IEnumerable`1<class [mscorlib]System.Reflection.ConstructorInfo> [mscorlib]System.Reflection.TypeInfo::get_DeclaredConstructors()
+    IL_0014:  call       !!0 [System.Core]System.Linq.Enumerable::First<class [mscorlib]System.Reflection.ConstructorInfo>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>)
+    IL_0019:  ret
+  } // end of method BuilderHelper::GetBaseCtor
+
+  .method public hidebysig instance void 
+          Save() cil managed
+  {
+    // Code size       18 (0x12)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      class [mscorlib]System.Reflection.Emit.AssemblyBuilder DynWebao.BuilderHelper::asmBuilder
+    IL_0006:  ldarg.0
+    IL_0007:  ldfld      string DynWebao.BuilderHelper::filename
+    IL_000c:  callvirt   instance void [mscorlib]System.Reflection.Emit.AssemblyBuilder::Save(string)
+    IL_0011:  ret
+  } // end of method BuilderHelper::Save
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method BuilderHelper::.ctor
+
+} // end of class DynWebao.BuilderHelper
+
+.class public auto ansi beforefieldinit DynWebao.MethodInformation
+       extends [mscorlib]System.Object
+{
+  .field private string '<Name>k__BackingField'
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+  .field private class [mscorlib]System.Type '<ReturnType>k__BackingField'
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+  .field private class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> '<Args>k__BackingField'
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+  .field private class [Webao]Webao.Attributes.MappingAttribute '<Mapping>k__BackingField'
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+  .field private class [Webao]Webao.Attributes.GetAttribute '<Get>k__BackingField'
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+  .field private valuetype [mscorlib]System.Reflection.MethodAttributes '<MethodAttrs>k__BackingField'
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+  .method public hidebysig specialname instance string 
+          get_Name() cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      string DynWebao.MethodInformation::'<Name>k__BackingField'
+    IL_0006:  ret
+  } // end of method MethodInformation::get_Name
+
+  .method public hidebysig specialname instance void 
+          set_Name(string 'value') cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  stfld      string DynWebao.MethodInformation::'<Name>k__BackingField'
+    IL_0007:  ret
+  } // end of method MethodInformation::set_Name
+
+  .method public hidebysig specialname instance class [mscorlib]System.Type 
+          get_ReturnType() cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      class [mscorlib]System.Type DynWebao.MethodInformation::'<ReturnType>k__BackingField'
+    IL_0006:  ret
+  } // end of method MethodInformation::get_ReturnType
+
+  .method public hidebysig specialname instance void 
+          set_ReturnType(class [mscorlib]System.Type 'value') cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  stfld      class [mscorlib]System.Type DynWebao.MethodInformation::'<ReturnType>k__BackingField'
+    IL_0007:  ret
+  } // end of method MethodInformation::set_ReturnType
+
+  .method public hidebysig specialname instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> 
+          get_Args() cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::'<Args>k__BackingField'
+    IL_0006:  ret
+  } // end of method MethodInformation::get_Args
+
+  .method public hidebysig specialname instance void 
+          set_Args(class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> 'value') cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  stfld      class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::'<Args>k__BackingField'
+    IL_0007:  ret
+  } // end of method MethodInformation::set_Args
+
+  .method public hidebysig specialname instance class [Webao]Webao.Attributes.MappingAttribute 
+          get_Mapping() cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      class [Webao]Webao.Attributes.MappingAttribute DynWebao.MethodInformation::'<Mapping>k__BackingField'
+    IL_0006:  ret
+  } // end of method MethodInformation::get_Mapping
+
+  .method public hidebysig specialname instance void 
+          set_Mapping(class [Webao]Webao.Attributes.MappingAttribute 'value') cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  stfld      class [Webao]Webao.Attributes.MappingAttribute DynWebao.MethodInformation::'<Mapping>k__BackingField'
+    IL_0007:  ret
+  } // end of method MethodInformation::set_Mapping
+
+  .method public hidebysig specialname instance class [Webao]Webao.Attributes.GetAttribute 
+          get_Get() cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      class [Webao]Webao.Attributes.GetAttribute DynWebao.MethodInformation::'<Get>k__BackingField'
+    IL_0006:  ret
+  } // end of method MethodInformation::get_Get
+
+  .method public hidebysig specialname instance void 
+          set_Get(class [Webao]Webao.Attributes.GetAttribute 'value') cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  stfld      class [Webao]Webao.Attributes.GetAttribute DynWebao.MethodInformation::'<Get>k__BackingField'
+    IL_0007:  ret
+  } // end of method MethodInformation::set_Get
+
+  .method public hidebysig specialname instance valuetype [mscorlib]System.Reflection.MethodAttributes 
+          get_MethodAttrs() cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      valuetype [mscorlib]System.Reflection.MethodAttributes DynWebao.MethodInformation::'<MethodAttrs>k__BackingField'
+    IL_0006:  ret
+  } // end of method MethodInformation::get_MethodAttrs
+
+  .method public hidebysig specialname instance void 
+          set_MethodAttrs(valuetype [mscorlib]System.Reflection.MethodAttributes 'value') cil managed
+  {
+    .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       8 (0x8)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  stfld      valuetype [mscorlib]System.Reflection.MethodAttributes DynWebao.MethodInformation::'<MethodAttrs>k__BackingField'
+    IL_0007:  ret
+  } // end of method MethodInformation::set_MethodAttrs
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method MethodInformation::.ctor
+
+  .property instance string Name()
+  {
+    .get instance string DynWebao.MethodInformation::get_Name()
+    .set instance void DynWebao.MethodInformation::set_Name(string)
+  } // end of property MethodInformation::Name
+  .property instance class [mscorlib]System.Type
+          ReturnType()
+  {
+    .get instance class [mscorlib]System.Type DynWebao.MethodInformation::get_ReturnType()
+    .set instance void DynWebao.MethodInformation::set_ReturnType(class [mscorlib]System.Type)
+  } // end of property MethodInformation::ReturnType
+  .property instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type>
+          Args()
+  {
+    .get instance class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type> DynWebao.MethodInformation::get_Args()
+    .set instance void DynWebao.MethodInformation::set_Args(class [mscorlib]System.Collections.Generic.IList`1<class [mscorlib]System.Type>)
+  } // end of property MethodInformation::Args
+  .property instance class [Webao]Webao.Attributes.MappingAttribute
+          Mapping()
+  {
+    .get instance class [Webao]Webao.Attributes.MappingAttribute DynWebao.MethodInformation::get_Mapping()
+    .set instance void DynWebao.MethodInformation::set_Mapping(class [Webao]Webao.Attributes.MappingAttribute)
+  } // end of property MethodInformation::Mapping
+  .property instance class [Webao]Webao.Attributes.GetAttribute
+          Get()
+  {
+    .get instance class [Webao]Webao.Attributes.GetAttribute DynWebao.MethodInformation::get_Get()
+    .set instance void DynWebao.MethodInformation::set_Get(class [Webao]Webao.Attributes.GetAttribute)
+  } // end of property MethodInformation::Get
+  .property instance valuetype [mscorlib]System.Reflection.MethodAttributes
+          MethodAttrs()
+  {
+    .get instance valuetype [mscorlib]System.Reflection.MethodAttributes DynWebao.MethodInformation::get_MethodAttrs()
+    .set instance void DynWebao.MethodInformation::set_MethodAttrs(valuetype [mscorlib]System.Reflection.MethodAttributes)
+  } // end of property MethodInformation::MethodAttrs
+} // end of class DynWebao.MethodInformation
+
+.class interface public abstract auto ansi DynWebao.IWebaoDynArtist
+{
+  .custom instance void [Webao]Webao.Attributes.BaseUrlAttribute::.ctor(string) = ( 01 00 21 68 74 74 70 3A 2F 2F 77 73 2E 61 75 64   // ..!http://ws.aud
+                                                                                    69 6F 73 63 72 6F 62 62 6C 65 72 2E 63 6F 6D 2F   // ioscrobbler.com/
+                                                                                    32 2E 30 2F 00 00 )                               // 2.0/..
+  .custom instance void [Webao]Webao.Attributes.AddParameterAttribute::.ctor(string,
+                                                                             string) = ( 01 00 06 66 6F 72 6D 61 74 04 6A 73 6F 6E 00 00 ) // ...format.json..
+  .custom instance void [Webao]Webao.Attributes.AddParameterAttribute::.ctor(string,
+                                                                             string) = ( 01 00 07 61 70 69 5F 6B 65 79 20 37 34 39 65 37   // ...api_key 749e7
+                                                                                         63 32 31 32 62 32 33 31 33 61 32 37 39 62 62 61   // c212b2313a279bba
+                                                                                         66 65 61 35 37 61 61 66 32 39 62 00 00 )          // fea57aaf29b..
+  .method public hidebysig newslot abstract virtual 
+          instance class [WebaoTest]Webao.Test.Dto.LastFm.Artist 
+          GetInfo(string name) cil managed
+  {
+    .custom instance void [Webao]Webao.Attributes.GetAttribute::.ctor(string) = ( 01 00 24 3F 6D 65 74 68 6F 64 3D 61 72 74 69 73   // ..$?method=artis
+                                                                                  74 2E 67 65 74 69 6E 66 6F 26 61 72 74 69 73 74   // t.getinfo&artist
+                                                                                  3D 7B 6E 61 6D 65 7D 00 00 )                      // ={name}..
+    .custom instance void [Webao]Webao.Attributes.MappingAttribute::.ctor(class [mscorlib]System.Type,
+                                                                          string) = ( 01 00 61 57 65 62 61 6F 2E 54 65 73 74 2E 44 74   // ..aWebao.Test.Dt
+                                                                                      6F 2E 4C 61 73 74 46 6D 2E 44 74 6F 41 72 74 69   // o.LastFm.DtoArti
+                                                                                      73 74 2C 20 57 65 62 61 6F 54 65 73 74 2C 20 56   // st, WebaoTest, V
+                                                                                      65 72 73 69 6F 6E 3D 31 2E 30 2E 30 2E 30 2C 20   // ersion=1.0.0.0, 
+                                                                                      43 75 6C 74 75 72 65 3D 6E 65 75 74 72 61 6C 2C   // Culture=neutral,
+                                                                                      20 50 75 62 6C 69 63 4B 65 79 54 6F 6B 65 6E 3D   //  PublicKeyToken=
+                                                                                      6E 75 6C 6C 07 2E 41 72 74 69 73 74 00 00 )       // null..Artist..
+  } // end of method IWebaoDynArtist::GetInfo
+
+  .method public hidebysig newslot abstract virtual 
+          instance class [mscorlib]System.Collections.Generic.List`1<class [WebaoTest]Webao.Test.Dto.LastFm.Artist> 
+          Search(string name,
+                 int32 page) cil managed
+  {
+    .custom instance void [Webao]Webao.Attributes.GetAttribute::.ctor(string) = ( 01 00 2F 3F 6D 65 74 68 6F 64 3D 61 72 74 69 73   // ../?method=artis
+                                                                                  74 2E 73 65 61 72 63 68 26 61 72 74 69 73 74 3D   // t.search&artist=
+                                                                                  7B 6E 61 6D 65 7D 26 70 61 67 65 3D 7B 70 61 67   // {name}&page={pag
+                                                                                  65 7D 00 00 )                                     // e}..
+    .custom instance void [Webao]Webao.Attributes.MappingAttribute::.ctor(class [mscorlib]System.Type,
+                                                                          string) = ( 01 00 61 57 65 62 61 6F 2E 54 65 73 74 2E 44 74   // ..aWebao.Test.Dt
+                                                                                      6F 2E 4C 61 73 74 46 6D 2E 44 74 6F 53 65 61 72   // o.LastFm.DtoSear
+                                                                                      63 68 2C 20 57 65 62 61 6F 54 65 73 74 2C 20 56   // ch, WebaoTest, V
+                                                                                      65 72 73 69 6F 6E 3D 31 2E 30 2E 30 2E 30 2C 20   // ersion=1.0.0.0, 
+                                                                                      43 75 6C 74 75 72 65 3D 6E 65 75 74 72 61 6C 2C   // Culture=neutral,
+                                                                                      20 50 75 62 6C 69 63 4B 65 79 54 6F 6B 65 6E 3D   //  PublicKeyToken=
+                                                                                      6E 75 6C 6C 1D 2E 52 65 73 75 6C 74 73 2E 41 72   // null..Results.Ar
+                                                                                      74 69 73 74 4D 61 74 63 68 65 73 2E 41 72 74 69   // tistMatches.Arti
+                                                                                      73 74 00 00 )                                     // st..
+  } // end of method IWebaoDynArtist::Search
+
+} // end of class DynWebao.IWebaoDynArtist
+
+.class public auto ansi beforefieldinit DynWebao.WebaoDynBuilder
+       extends [mscorlib]System.Object
+{
+  .field private static class DynWebao.BuilderHelper builderHelper
+  .field private static class DynWebao.Emitter emitter
+  .method public hidebysig static object 
+          Build(class [mscorlib]System.Type interfaceWebao,
+                class [Webao]Webao.IRequest req) cil managed
+  {
+    // Code size       300 (0x12c)
+    .maxstack  5
+    .locals init ([0] class [mscorlib]System.Collections.Generic.List`1<class [mscorlib]System.Attribute> baseUrl,
+             [1] class [Webao]Webao.Attributes.BaseUrlAttribute baseUrlAttribute,
+             [2] valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [mscorlib]System.Attribute> V_2,
+             [3] class [Webao]Webao.Attributes.AddParameterAttribute parameterAttribute,
+             [4] class [mscorlib]System.Reflection.MethodInfo[] V_4,
+             [5] int32 V_5,
+             [6] class [mscorlib]System.Reflection.MethodInfo 'method',
+             [7] class DynWebao.MethodInformation info)
+    IL_0000:  ldarg.0
+    IL_0001:  call       class [Webao]Webao.Base.TypeInformation [Webao]Webao.Base.TypeInfoCache::Get(class [mscorlib]System.Type)
+    IL_0006:  dup
+    IL_0007:  ldstr      "BaseUrl"
+    IL_000c:  callvirt   instance class [mscorlib]System.Collections.Generic.List`1<class [mscorlib]System.Attribute> [Webao]Webao.Base.TypeInformation::GetClassAttributesByName(string)
+    IL_0011:  stloc.0
+    IL_0012:  ldstr      "AddParameter"
+    IL_0017:  callvirt   instance class [mscorlib]System.Collections.Generic.List`1<class [mscorlib]System.Attribute> [Webao]Webao.Base.TypeInformation::GetClassAttributesByName(string)
+    IL_001c:  ldloc.0
+    IL_001d:  ldc.i4.0
+    IL_001e:  callvirt   instance !0 class [mscorlib]System.Collections.Generic.List`1<class [mscorlib]System.Attribute>::get_Item(int32)
+    IL_0023:  isinst     [Webao]Webao.Attributes.BaseUrlAttribute
+    IL_0028:  stloc.1
+    IL_0029:  ldloc.1
+    IL_002a:  brfalse.s  IL_0039
+
+    IL_002c:  ldarg.1
+    IL_002d:  ldloc.1
+    IL_002e:  ldfld      string [Webao]Webao.Attributes.BaseUrlAttribute::host
+    IL_0033:  callvirt   instance class [Webao]Webao.IRequest [Webao]Webao.IRequest::BaseUrl(string)
+    IL_0038:  pop
+    IL_0039:  callvirt   instance valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<!0> class [mscorlib]System.Collections.Generic.List`1<class [mscorlib]System.Attribute>::GetEnumerator()
+    IL_003e:  stloc.2
+    .try
+    {
+      IL_003f:  br.s       IL_0064
+
+      IL_0041:  ldloca.s   V_2
+      IL_0043:  call       instance !0 valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [mscorlib]System.Attribute>::get_Current()
+      IL_0048:  isinst     [Webao]Webao.Attributes.AddParameterAttribute
+      IL_004d:  stloc.3
+      IL_004e:  ldloc.3
+      IL_004f:  brfalse.s  IL_0064
+
+      IL_0051:  ldarg.1
+      IL_0052:  ldloc.3
+      IL_0053:  ldfld      string [Webao]Webao.Attributes.AddParameterAttribute::name
+      IL_0058:  ldloc.3
+      IL_0059:  ldfld      string [Webao]Webao.Attributes.AddParameterAttribute::val
+      IL_005e:  callvirt   instance class [Webao]Webao.IRequest [Webao]Webao.IRequest::AddParameter(string,
+                                                                                                    string)
+      IL_0063:  pop
+      IL_0064:  ldloca.s   V_2
+      IL_0066:  call       instance bool valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [mscorlib]System.Attribute>::MoveNext()
+      IL_006b:  brtrue.s   IL_0041
+
+      IL_006d:  leave.s    IL_007d
+
+    }  // end .try
+    finally
+    {
+      IL_006f:  ldloca.s   V_2
+      IL_0071:  constrained. valuetype [mscorlib]System.Collections.Generic.List`1/Enumerator<class [mscorlib]System.Attribute>
+      IL_0077:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_007c:  endfinally
+    }  // end handler
+    IL_007d:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_0082:  ldarg.0
+    IL_0083:  callvirt   instance string [mscorlib]System.Reflection.MemberInfo::get_Name()
+    IL_0088:  ldc.i4.0
+    IL_0089:  ldc.i4.1
+    IL_008a:  callvirt   instance string [mscorlib]System.String::Remove(int32,
+                                                                         int32)
+    IL_008f:  callvirt   instance void DynWebao.BuilderHelper::SetModuleBuilder(string)
+    IL_0094:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_0099:  ldarg.0
+    IL_009a:  callvirt   instance void DynWebao.BuilderHelper::SetTypeBuilder(class [mscorlib]System.Type)
+    IL_009f:  ldsfld     class DynWebao.Emitter DynWebao.WebaoDynBuilder::emitter
+    IL_00a4:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_00a9:  ldfld      class [mscorlib]System.Reflection.Emit.TypeBuilder DynWebao.BuilderHelper::TypeBuilder
+    IL_00ae:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_00b3:  callvirt   instance class [mscorlib]System.Reflection.ConstructorInfo DynWebao.BuilderHelper::GetBaseCtor()
+    IL_00b8:  callvirt   instance void DynWebao.Emitter::EmitConstructor(class [mscorlib]System.Reflection.Emit.TypeBuilder,
+                                                                         class [mscorlib]System.Reflection.ConstructorInfo)
+    IL_00bd:  ldarg.0
+    IL_00be:  callvirt   instance class [mscorlib]System.Reflection.MethodInfo[] [mscorlib]System.Type::GetMethods()
+    IL_00c3:  stloc.s    V_4
+    IL_00c5:  ldc.i4.0
+    IL_00c6:  stloc.s    V_5
+    IL_00c8:  br.s       IL_00fb
+
+    IL_00ca:  ldloc.s    V_4
+    IL_00cc:  ldloc.s    V_5
+    IL_00ce:  ldelem.ref
+    IL_00cf:  stloc.s    'method'
+    IL_00d1:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_00d6:  ldloc.s    'method'
+    IL_00d8:  callvirt   instance class DynWebao.MethodInformation DynWebao.BuilderHelper::ProcessMethod(class [mscorlib]System.Reflection.MethodInfo)
+    IL_00dd:  stloc.s    info
+    IL_00df:  ldsfld     class DynWebao.Emitter DynWebao.WebaoDynBuilder::emitter
+    IL_00e4:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_00e9:  ldfld      class [mscorlib]System.Reflection.Emit.TypeBuilder DynWebao.BuilderHelper::TypeBuilder
+    IL_00ee:  ldloc.s    info
+    IL_00f0:  callvirt   instance void DynWebao.Emitter::EmitMethod(class [mscorlib]System.Reflection.Emit.TypeBuilder,
+                                                                    class DynWebao.MethodInformation)
+    IL_00f5:  ldloc.s    V_5
+    IL_00f7:  ldc.i4.1
+    IL_00f8:  add
+    IL_00f9:  stloc.s    V_5
+    IL_00fb:  ldloc.s    V_5
+    IL_00fd:  ldloc.s    V_4
+    IL_00ff:  ldlen
+    IL_0100:  conv.i4
+    IL_0101:  blt.s      IL_00ca
+
+    IL_0103:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_0108:  ldfld      class [mscorlib]System.Reflection.Emit.TypeBuilder DynWebao.BuilderHelper::TypeBuilder
+    IL_010d:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Reflection.Emit.TypeBuilder::CreateType()
+    IL_0112:  ldsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_0117:  callvirt   instance void DynWebao.BuilderHelper::Save()
+    IL_011c:  ldc.i4.1
+    IL_011d:  newarr     [mscorlib]System.Object
+    IL_0122:  dup
+    IL_0123:  ldc.i4.0
+    IL_0124:  ldarg.1
+    IL_0125:  stelem.ref
+    IL_0126:  call       object [mscorlib]System.Activator::CreateInstance(class [mscorlib]System.Type,
+                                                                           object[])
+    IL_012b:  ret
+  } // end of method WebaoDynBuilder::Build
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method WebaoDynBuilder::.ctor
+
+  .method private hidebysig specialname rtspecialname static 
+          void  .cctor() cil managed
+  {
+    // Code size       21 (0x15)
+    .maxstack  8
+    IL_0000:  newobj     instance void DynWebao.BuilderHelper::.ctor()
+    IL_0005:  stsfld     class DynWebao.BuilderHelper DynWebao.WebaoDynBuilder::builderHelper
+    IL_000a:  newobj     instance void DynWebao.Emitter::.ctor()
+    IL_000f:  stsfld     class DynWebao.Emitter DynWebao.WebaoDynBuilder::emitter
+    IL_0014:  ret
+  } // end of method WebaoDynBuilder::.cctor
+
+} // end of class DynWebao.WebaoDynBuilder
+
+
+// =============================================================
+
+// *********** DISASSEMBLY COMPLETE ***********************
+// WARNING: Created Win32 resource file dumpDummy.res

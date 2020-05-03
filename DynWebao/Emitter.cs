@@ -42,14 +42,25 @@ namespace DynWebao
             ilGen.Emit(OpCodes.Ldc_I4, methodInfo.Args.Count);
             ilGen.Emit(OpCodes.Newarr, typeof(string));
             ilGen.Emit(OpCodes.Dup);
-            for (var i = 0; i < methodInfo.Args.Count; i++)
+            var argsCount = methodInfo.Args.Count;
+            for (var i = 0; i < argsCount; i++)
             {
                 ilGen.Emit(OpCodes.Ldc_I4,i);
-                ilGen.Emit(OpCodes.Ldarg, i + 1);
-                ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString",Type.EmptyTypes));
+                var index = i + 1;
+                if (methodInfo.Args[i].IsValueType)//INT
+                {
+                    ilGen.Emit(OpCodes.Ldarga_S, index);
+                    ilGen.Emit(OpCodes.Call, typeof(Int32).GetMethod("ToString", Type.EmptyTypes));
+                }
+                else //STRING
+                {
+                    ilGen.Emit(OpCodes.Ldarg, index);
+                    ilGen.Emit(OpCodes.Callvirt, typeof(object).GetMethod("ToString", Type.EmptyTypes));
+                }
+
                 ilGen.Emit(OpCodes.Stelem_Ref);
-                /*if (i != methodInfo.Args.Count)
-                    ilGen.Emit(OpCodes.Dup);*/
+                if (i != argsCount-1 && argsCount>1)
+                    ilGen.Emit(OpCodes.Dup);
             } 
             ilGen.Emit(OpCodes.Call, typeof(Base).GetRuntimeMethods().ElementAt(0));
             ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.destType);

@@ -13,11 +13,11 @@ namespace DynWebao
     {
         [Get("?method=artist.getinfo&artist={name}")]
         [Mapping(typeof(DtoArtist), ".Artist")]
-        Artist GetInfo(object name);
+        Artist GetInfo(string name);
 
 
         [Get("?method=artist.search&artist={name}&page={page}")]
         [Mapping(typeof(DtoSearch), ".Results.ArtistMatches.Artist")]
-        List<Artist> Search(object name, object page);
+        List<Artist> Search(string name, int page);
     }
 }
