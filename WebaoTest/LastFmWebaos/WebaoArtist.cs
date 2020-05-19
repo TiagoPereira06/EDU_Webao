@@ -16,17 +16,17 @@ namespace Webao.Test.LastFmWebaos
 
         [Get("?method=artist.getinfo&artist={name}")]
         [Mapping(typeof(DtoArtist), ".Artist")]
-        public Dto.LastFm.Artist GetInfo(string name)
+        public Artist GetInfo(string name)
         {
-            return (Dto.LastFm.Artist) Request(name);
+            return (Artist) Request(name);
         }
 
 
         [Get("?method=artist.search&artist={name}")]
         [Mapping(typeof(DtoSearch), ".Results.ArtistMatches.Artist")]
-        public List<Dto.LastFm.Artist> Search(string name)
+        public List<Artist> Search(string name)
         {
-            return (List<Dto.LastFm.Artist>) Request(name);
+            return (List<Artist>) Request(name);
         }
     }
 }

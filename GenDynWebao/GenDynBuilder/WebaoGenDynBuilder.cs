@@ -3,9 +3,9 @@ using Webao;
 using Webao.Attributes;
 using Webao.Base;
 
-namespace DynWebao.DynBuilder
+namespace GenDynWebao.GenDynBuilder
 {
-    public class WebaoDynBuilder
+    public class WebaoGenDynBuilder
     {
         private static readonly BuilderHelper builderHelper = new BuilderHelper();
         private static readonly Emitter emitter = new Emitter();

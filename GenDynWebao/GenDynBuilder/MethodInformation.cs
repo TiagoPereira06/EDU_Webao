@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Webao.Attributes;
 
-namespace DynWebao.DynBuilder
+namespace GenDynWebao.GenDynBuilder
 {
     public class MethodInformation
     {

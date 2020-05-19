@@ -9,24 +9,24 @@ namespace WebaoBench
 {
     public class WebaoBench
     {
-        private static readonly IWebaoDynArtist dynArtistWebao = 
+        private static readonly IWebaoDynArtist dynArtistWebao =
             (IWebaoDynArtist) WebaoDynBuilder
                 .Build(typeof(IWebaoDynArtist), new LastfmMockRequest());
-        
-        private static readonly IWebaoDynTrack dynTrackWebao = 
+
+        private static readonly IWebaoDynTrack dynTrackWebao =
             (IWebaoDynTrack) WebaoDynBuilder
                 .Build(typeof(IWebaoDynTrack), new LastfmMockRequest());
-        
-        private static readonly IWebaoDynEpisode dynEpisodeWebao = 
+
+        private static readonly IWebaoDynEpisode dynEpisodeWebao =
             (IWebaoDynEpisode) WebaoDynBuilder
                 .Build(typeof(IWebaoDynEpisode), new TvMazeMockRequest());
-        
+
         private static readonly WebaoArtist artistWebao =
             (WebaoArtist) WebaoBuilder.Build(typeof(WebaoArtist), new LastfmMockRequest());
 
         private static readonly WebaoTrack trackWebao =
             (WebaoTrack) WebaoBuilder.Build(typeof(WebaoTrack), new LastfmMockRequest());
-        
+
         private static readonly WebaoEpisode episodeWebao =
             (WebaoEpisode) WebaoBuilder.Build(typeof(WebaoEpisode), new TvMazeMockRequest());
 
@@ -34,34 +34,34 @@ namespace WebaoBench
         {
             return null;
         }
-        
+
         public static object ArtistDynTest()
         {
             return GetWebao.GetDynArtistInfo(dynArtistWebao);
         }
-        
+
         public static object ArtistTest()
         {
             return GetWebao.GetArtistInfo(artistWebao);
         }
-        
-        
+
+
         public static object TrackDynTest()
         {
             return GetWebao.GetDynTrackTop(dynTrackWebao);
         }
-        
+
         public static object TrackTest()
         {
             return GetWebao.GetTrackTop(trackWebao);
         }
-        
-        
+
+
         public static object EpisodeDynTest()
         {
             return GetWebao.GetDynEpisodeInfo(dynEpisodeWebao);
         }
-        
+
         public static object EpisodeTest()
         {
             return GetWebao.GetEpisodeInfo(episodeWebao);
@@ -69,21 +69,20 @@ namespace WebaoBench
 
         public static void Main(string[] args)
         {
-            const long ITER_TIME  = 1000;
+            const long ITER_TIME = 1000;
             const long NUM_WARMUP = 10;
-            const long NUM_ITER   = 10;
-            
-            NBench.Benchmark(NoOperation,"noOperation", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            
-            NBench.Benchmark(ArtistDynTest,"artistDynTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            NBench.Benchmark(ArtistTest,"artistTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            
-            NBench.Benchmark(TrackDynTest,"TrackDynTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            NBench.Benchmark(TrackTest,"TrackTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            
-            NBench.Benchmark(EpisodeDynTest,"EpisodeDynTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            NBench.Benchmark(EpisodeTest,"EpisodeTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
-            
+            const long NUM_ITER = 10;
+
+            NBench.Benchmark(NoOperation, "noOperation", ITER_TIME, NUM_WARMUP, NUM_ITER);
+
+            NBench.Benchmark(ArtistDynTest, "artistDynTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
+            NBench.Benchmark(ArtistTest, "artistTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
+
+            NBench.Benchmark(TrackDynTest, "TrackDynTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
+            NBench.Benchmark(TrackTest, "TrackTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
+
+            NBench.Benchmark(EpisodeDynTest, "EpisodeDynTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
+            NBench.Benchmark(EpisodeTest, "EpisodeTest", ITER_TIME, NUM_WARMUP, NUM_ITER);
         }
     }
 }

@@ -1,15 +1,11 @@
-﻿using DynWebao.DynBuilder;
-using DynWebao.IWebaos;
-using Webao;
+﻿using DynWebao.IWebaos;
 using Webao.Test.LastFmWebaos;
-using Webao.Test.MockRequests;
 using Webao.Test.TvMazeWebaos;
 
 namespace WebaoBench
 {
     public static class GetWebao
     {
-
         public static object GetArtistInfo(WebaoArtist artist)
         {
             return artist.GetInfo("muse");
@@ -29,7 +25,7 @@ namespace WebaoBench
         {
             return dynTrack.GeoGetTopTracks("australia");
         }
-        
+
         public static object GetEpisodeInfo(WebaoEpisode episode)
         {
             return episode.Search(82, 6, 9);

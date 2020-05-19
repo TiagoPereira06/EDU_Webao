@@ -8,7 +8,6 @@ namespace DynWebao.IWebaos
     [BaseUrl("http://ws.audioscrobbler.com/2.0/")]
     [AddParameter("format", "json")]
     [AddParameter("api_key", LastFmAPI.API_KEY)]
-    
     public interface IWebaoDynArtist
     {
         [Get("?method=artist.getinfo&artist={name}")]

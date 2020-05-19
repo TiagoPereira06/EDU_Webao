@@ -104,7 +104,6 @@ namespace Webao.Test
             Assert.AreEqual("2011-04-17", tvShow.Premiered);
             Assert.AreNotEqual("Portuguese", tvShow.Language);
         }
-
     }
 
     [TestClass]
@@ -133,7 +132,6 @@ namespace Webao.Test
             Assert.AreEqual("http://www.tvmaze.com/people/14079/emilia-clarke", person.Url);
             Assert.AreNotEqual("Male", person.Gender);
         }
-
     }
 
     [TestClass]
@@ -152,6 +150,5 @@ namespace Webao.Test
             Assert.AreNotEqual(25, episode.Number);
             Assert.AreNotEqual(200, episode.Runtime);
         }
-
     }
 }

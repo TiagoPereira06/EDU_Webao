@@ -7,6 +7,5 @@
         public string Name { get; set; }
         public string Language { get; set; }
         public string Premiered { get; set; }
-
     }
 }
