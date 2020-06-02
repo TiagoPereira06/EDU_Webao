@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{D159F59A-00FB-456C-924E-D114EAC725C4}</ProjectGuid>
+        <ProjectGuid>{B715A261-4EA8-4978-900C-075A9FC603EF}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>GenDynWebao</RootNamespace>
-        <AssemblyName>GenDynWebao</AssemblyName>
+        <RootNamespace>GenericWebaoTest</RootNamespace>
+        <AssemblyName>GenericWebaoTest</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -32,27 +32,35 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="GenericDynBuilder\BuilderHelper.cs" />
-        <Compile Include="GenericDynBuilder\Emitter.cs" />
-        <Compile Include="GenericDynBuilder\BuildInfo.cs" />
-        <Compile Include="GenericDynBuilder\MethodInformation.cs" />
-        <Compile Include="GenericDynBuilder\WebaoGenericBuilder.cs" />
-        <Compile Include="IGenericWebaos\IWebaoGenericArtist.cs" />
-        <Compile Include="IGenericWebaos\IWebaoGenericTrack.cs" />
+        <Compile Include="GenDynAccessObjectTest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="WebaoGenericDummy\LastFm\ArtistWebaoGenenericDummy.cs" />
-        <Compile Include="WebaoGenericDummy\LastFm\TrackWebaoGenericDummy.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\DynWebao\DynWebao.csproj">
         <Project>{156db1d5-3fcf-4340-952e-c6eaff7a8c79}</Project>
         <Name>DynWebao</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\GenDynWebao\GenDynWebao.csproj">
+        <Project>{d159f59a-00fb-456c-924e-d114eac725c4}</Project>
+        <Name>GenDynWebao</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\GenericWebao\GenericWebao.csproj">
+        <Project>{d159f59a-00fb-456c-924e-d114eac725c4}</Project>
+        <Name>GenericWebao</Name>
       </ProjectReference>
       <ProjectReference Include="..\WebaoTest\WebaoTest.csproj">
         <Project>{8136fba5-9e2a-4f62-ab7c-0c36df32525d}</Project>
@@ -62,6 +70,9 @@
         <Project>{98e66f08-5b55-4757-9f8d-ec1c7a38ff12}</Project>
         <Name>Webao</Name>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

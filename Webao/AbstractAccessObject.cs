@@ -25,9 +25,9 @@ namespace Webao
             var getAttribute = callSite.GetCustomAttribute<GetAttribute>(false);
             var mappingAttribute = callSite.GetCustomAttribute<MappingAttribute>(false);
             var path = CompletePath(getAttribute.path, args);
-            var reply = req.Get(path, mappingAttribute.destType);
+            var reply = req.Get(path, mappingAttribute.Dto);
             var graphIndex = reply;
-            var graphSchema = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
+            var graphSchema = mappingAttribute.Path.Split('.').Where(s => !s.Equals("")).ToArray();
             foreach (var propertyName in graphSchema)
                 graphIndex = graphIndex?.GetType().GetProperty(propertyName)?.GetValue(graphIndex);
             return graphIndex;

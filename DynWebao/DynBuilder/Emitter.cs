@@ -65,7 +65,7 @@ namespace DynWebao.DynBuilder
             }
 
             ilGen.Emit(OpCodes.Call, typeof(Base).GetRuntimeMethods().ElementAt(0));
-            ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.destType);
+            ilGen.Emit(OpCodes.Ldtoken, methodInfo.Mapping.Dto);
             ilGen.Emit(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle",
                 BindingFlags.Public | BindingFlags.Static) ?? throw new Exception());
             ilGen.Emit(OpCodes.Callvirt, typeof(IRequest).GetMethod("Get"));
@@ -75,9 +75,9 @@ namespace DynWebao.DynBuilder
 
         private static void GenResult(ILGenerator ilGen, MappingAttribute mappingAttribute)
         {
-            var property = mappingAttribute.destType;
-            if (!property.IsValueType) ilGen.Emit(OpCodes.Castclass, mappingAttribute.destType);
-            var propertyNames = mappingAttribute.path.Split('.').Where(s => !s.Equals("")).ToArray();
+            var property = mappingAttribute.Dto;
+            if (!property.IsValueType) ilGen.Emit(OpCodes.Castclass, mappingAttribute.Dto);
+            var propertyNames = mappingAttribute.Path.Split('.').Where(s => !s.Equals("")).ToArray();
             for (var i = 0; i < propertyNames.Length; ++i)
             {
                 var propertyName = propertyNames[i];

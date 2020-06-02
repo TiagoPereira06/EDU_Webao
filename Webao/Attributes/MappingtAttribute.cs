@@ -5,13 +5,20 @@ namespace Webao.Attributes
     [AttributeUsage(AttributeTargets.Method)]
     public class MappingAttribute : Attribute
     {
-        public readonly Type destType;
-        public readonly string path;
-
-        public MappingAttribute(Type dest, string path)
+        public MappingAttribute(Type dto, string path)
         {
-            this.path = path;
-            destType = dest;
+            Dto = dto;
+            Path = path;
         }
+
+        public MappingAttribute(Type dto)
+        {
+            Dto = dto;
+        }
+
+        public Type Dto { get; }
+        public string Path { get; }
+
+        public string With { get; set; }
     }
 }

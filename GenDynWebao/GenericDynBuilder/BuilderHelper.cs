@@ -5,9 +5,10 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Threading;
 using DynWebao;
+using GenericWebao.GenericDynBuilder;
 using Webao.Attributes;
 
-namespace GenDynWebao.GenDynBuilder
+namespace GenDynWebao.GenericDynBuilder
 {
     public class BuilderHelper
     {
@@ -16,7 +17,7 @@ namespace GenDynWebao.GenDynBuilder
         private ModuleBuilder moduleBuilder;
         public TypeBuilder TypeBuilder;
 
-        public MethodInformation ProcessMethod(MethodInfo method)
+        public static MethodInformation ProcessMethod(MethodInfo method)
         {
             MappingAttribute mappingAttribute = null;
             GetAttribute getAttribute = null;
@@ -39,6 +40,16 @@ namespace GenDynWebao.GenDynBuilder
             return info;
         }
 
+        public static MethodInformation CompleteMethodInfo(Type target, MethodInformation methodInformation)
+        {
+            var method = target.GetMethod(methodInformation.Name);
+            methodInformation.ReturnType = method.ReturnType;
+            methodInformation.Args = method.GetParameters().Select(arg => arg.ParameterType).ToList();
+            methodInformation.MethodAttrs = method.Attributes;
+
+            return methodInformation;
+        }
+
         public void SetTypeBuilder(Type interfaceType)
         {
             TypeBuilder = moduleBuilder.DefineType(interfaceType.Name.Remove(0, 1),
@@ -56,7 +67,7 @@ namespace GenDynWebao.GenDynBuilder
             moduleBuilder = asmBuilder.DefineDynamicModule(asmName.Name, filename);
         }
 
-        public ConstructorInfo GetBaseCtor()
+        public static ConstructorInfo GetBaseCtor()
         {
             return typeof(Base).GetTypeInfo().DeclaredConstructors.First();
         }

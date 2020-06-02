@@ -5,6 +5,11 @@ namespace Webao.Test.Dto.LastFm
     public class DtoSearch
     {
         public DtoResults Results { get; set; }
+
+        public List<Artist> GetArtistList()
+        {
+            return Results.ArtistMatches.Artist;
+        }
     }
 
     public class DtoResults
