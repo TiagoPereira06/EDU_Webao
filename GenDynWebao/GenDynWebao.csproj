@@ -46,6 +46,7 @@
         <Compile Include="IGenericWebaos\IWebaoGenericArtist.cs" />
         <Compile Include="IGenericWebaos\IWebaoGenericTrack.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ServiceTracks.cs" />
         <Compile Include="WebaoGenericDummy\LastFm\ArtistWebaoGenenericDummy.cs" />
         <Compile Include="WebaoGenericDummy\LastFm\TrackWebaoGenericDummy.cs" />
     </ItemGroup>
