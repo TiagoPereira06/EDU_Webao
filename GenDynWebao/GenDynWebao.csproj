@@ -32,9 +32,14 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Net.Http" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
@@ -45,6 +50,7 @@
         <Compile Include="GenericDynBuilder\WebaoGenericBuilder.cs" />
         <Compile Include="IGenericWebaos\IWebaoGenericArtist.cs" />
         <Compile Include="IGenericWebaos\IWebaoGenericTrack.cs" />
+        <Compile Include="LazyHttpRequest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="ServiceTracks.cs" />
         <Compile Include="WebaoGenericDummy\LastFm\ArtistWebaoGenenericDummy.cs" />
@@ -63,6 +69,9 @@
         <Project>{98e66f08-5b55-4757-9f8d-ec1c7a38ff12}</Project>
         <Name>Webao</Name>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -47,6 +47,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="GenDynAccessObjectTest.cs" />
+        <Compile Include="LazyIteratorsTest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

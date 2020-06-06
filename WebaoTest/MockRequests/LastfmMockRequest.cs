@@ -28,6 +28,16 @@ namespace Webao.Test.MockRequests
             return lastFmObjects[targetType];
         }
 
+        public IRequest SetPage(string pageNumber)
+        {
+            return null;
+        }
+
+        public IRequest SetLimit(string limit)
+        {
+            return null;
+        }
+
         private void InitMockObjects()
         {
             lastFmObjects.Add(typeof(DtoArtist), DtoArtistInit());

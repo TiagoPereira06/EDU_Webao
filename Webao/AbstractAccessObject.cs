@@ -8,7 +8,7 @@ namespace Webao
 {
     public abstract class AbstractAccessObject
     {
-        private readonly IRequest req;
+        public readonly IRequest req;
 
         protected AbstractAccessObject(IRequest req)
         {

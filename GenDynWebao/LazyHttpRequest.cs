@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Webao;
 
-namespace Webao
+namespace GenDynWebao
 {
-    public class HttpRequest : IRequest
+    public class LazyHttpRequest : IRequest
     {
         private static readonly HttpClient client = new HttpClient();
 
@@ -39,23 +41,30 @@ namespace Webao
 
         public IRequest SetPage(string pageNumber)
         {
-            return null;
+            if (queryParameters.ContainsKey("page"))
+                queryParameters["page"] = pageNumber;
+            else
+                queryParameters.Add("page", pageNumber);
+            return this;
         }
 
         public IRequest SetLimit(string limit)
         {
-            return null;
+            if (queryParameters.ContainsKey("limit"))
+                queryParameters["limit"] = limit;
+            else
+                queryParameters.Add("limit", limit);
+            return this;
         }
 
-        public string Url(string path)
+        private string Url(string path)
         {
             var url = host + path;
             if (queryParameters.Count != 0 && !url.Contains("?"))
                 url += "?";
             else
                 url += "&";
-            foreach (var pair in queryParameters) url += pair.Key + "=" + pair.Value + "&";
-            return url;
+            return queryParameters.Aggregate(url, (current, pair) => current + pair.Key + "=" + pair.Value + "&");
         }
     }
 }

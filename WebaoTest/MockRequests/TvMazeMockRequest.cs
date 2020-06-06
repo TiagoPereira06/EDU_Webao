@@ -28,6 +28,16 @@ namespace Webao.Test.MockRequests
             return tvMazeObjects[targetType];
         }
 
+        public IRequest SetPage(string pageNumber)
+        {
+            return null;
+        }
+
+        public IRequest SetLimit(string limit)
+        {
+            return null;
+        }
+
         private void InitMockObjects()
         {
             var tvShow = new TvShow {Name = "Game of Thrones", Premiered = "2011-04-17", Language = "English"};
