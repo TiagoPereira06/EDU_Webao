@@ -9,65 +9,65 @@ namespace WebaoBench
 {
     public class WebaoBench
     {
-        private static readonly IWebaoDynArtist dynArtistWebao =
+        private static readonly IWebaoDynArtist DynArtistWebao =
             (IWebaoDynArtist) WebaoDynBuilder
                 .Build(typeof(IWebaoDynArtist), new LastfmMockRequest());
 
-        private static readonly IWebaoDynTrack dynTrackWebao =
+        private static readonly IWebaoDynTrack DynTrackWebao =
             (IWebaoDynTrack) WebaoDynBuilder
                 .Build(typeof(IWebaoDynTrack), new LastfmMockRequest());
 
-        private static readonly IWebaoDynEpisode dynEpisodeWebao =
+        private static readonly IWebaoDynEpisode DynEpisodeWebao =
             (IWebaoDynEpisode) WebaoDynBuilder
                 .Build(typeof(IWebaoDynEpisode), new TvMazeMockRequest());
 
-        private static readonly WebaoArtist artistWebao =
+        private static readonly WebaoArtist ArtistWebao =
             (WebaoArtist) WebaoBuilder.Build(typeof(WebaoArtist), new LastfmMockRequest());
 
-        private static readonly WebaoTrack trackWebao =
+        private static readonly WebaoTrack TrackWebao =
             (WebaoTrack) WebaoBuilder.Build(typeof(WebaoTrack), new LastfmMockRequest());
 
-        private static readonly WebaoEpisode episodeWebao =
+        private static readonly WebaoEpisode EpisodeWebao =
             (WebaoEpisode) WebaoBuilder.Build(typeof(WebaoEpisode), new TvMazeMockRequest());
 
-        public static object NoOperation()
+        private static object NoOperation()
         {
             return null;
         }
 
-        public static object ArtistDynTest()
+        private static object ArtistDynTest()
         {
-            return GetWebao.GetDynArtistInfo(dynArtistWebao);
+            return GetWebao.GetDynArtistInfo(DynArtistWebao);
         }
 
-        public static object ArtistTest()
+        private static object ArtistTest()
         {
-            return GetWebao.GetArtistInfo(artistWebao);
-        }
-
-
-        public static object TrackDynTest()
-        {
-            return GetWebao.GetDynTrackTop(dynTrackWebao);
-        }
-
-        public static object TrackTest()
-        {
-            return GetWebao.GetTrackTop(trackWebao);
+            return GetWebao.GetArtistInfo(ArtistWebao);
         }
 
 
-        public static object EpisodeDynTest()
+        private static object TrackDynTest()
         {
-            return GetWebao.GetDynEpisodeInfo(dynEpisodeWebao);
+            return GetWebao.GetDynTrackTop(DynTrackWebao);
         }
 
-        public static object EpisodeTest()
+        private static object TrackTest()
         {
-            return GetWebao.GetEpisodeInfo(episodeWebao);
+            return GetWebao.GetTrackTop(TrackWebao);
         }
 
-        public static void Main(string[] args)
+
+        private static object EpisodeDynTest()
+        {
+            return GetWebao.GetDynEpisodeInfo(DynEpisodeWebao);
+        }
+
+        private static object EpisodeTest()
+        {
+            return GetWebao.GetEpisodeInfo(EpisodeWebao);
+        }
+
+        public static void Main()
         {
             const long ITER_TIME = 1000;
             const long NUM_WARMUP = 10;
