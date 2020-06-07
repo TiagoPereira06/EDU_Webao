@@ -52,7 +52,8 @@
         <Compile Include="IGenericWebaos\IWebaoGenericTrack.cs" />
         <Compile Include="LazyHttpRequest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="ServiceTracks.cs" />
+        <Compile Include="Services\ServiceArtist.cs" />
+        <Compile Include="Services\ServiceTracks.cs" />
         <Compile Include="WebaoGenericDummy\LastFm\ArtistWebaoGenenericDummy.cs" />
         <Compile Include="WebaoGenericDummy\LastFm\TrackWebaoGenericDummy.cs" />
     </ItemGroup>

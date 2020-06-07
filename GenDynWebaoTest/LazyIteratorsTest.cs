@@ -1,4 +1,5 @@
-﻿using GenDynWebao;
+﻿using System;
+using GenDynWebao.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GenericWebaoTest
@@ -10,13 +11,30 @@ namespace GenericWebaoTest
         public void TestLazyGetTopTracks()
         {
             var tracks = new ServiceTracks();
-            var counter = 0;
+            var results = 0;
             foreach (var track in tracks.TopTracksFrom("portugal"))
             {
-                ++counter;
-                if (counter != 86) continue;
-                //LIMIT = 20 -> 86/20 = 5
+                ++results;
+                Console.WriteLine(track.Name + " -By- " + track.Artist.Name);
+                if (results != 86) continue;
+                //LIMIT = 20 -> 86/20 = 5 REQUESTS
                 Assert.AreEqual(tracks.GetCurrentPage(), 5);
+                break;
+            }
+        }
+
+        [TestMethod]
+        public void TestLazySearchArtist()
+        {
+            var artists = new ServiceArtist();
+            var results = 0;
+            foreach (var artist in artists.SearchFor("Mallu"))
+            {
+                ++results;
+                Console.WriteLine(artist.Name);
+                if (results != 10) continue;
+                //LIMIT = 2 -> 10/2 = 5 REQUESTS
+                Assert.AreEqual(artists.GetCurrentPage(), 5);
                 break;
             }
         }

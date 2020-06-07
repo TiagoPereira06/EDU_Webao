@@ -59,10 +59,6 @@
         <Project>{d159f59a-00fb-456c-924e-d114eac725c4}</Project>
         <Name>GenDynWebao</Name>
       </ProjectReference>
-      <ProjectReference Include="..\GenericWebao\GenericWebao.csproj">
-        <Project>{d159f59a-00fb-456c-924e-d114eac725c4}</Project>
-        <Name>GenericWebao</Name>
-      </ProjectReference>
       <ProjectReference Include="..\WebaoTest\WebaoTest.csproj">
         <Project>{8136fba5-9e2a-4f62-ab7c-0c36df32525d}</Project>
         <Name>WebaoTest</Name>
