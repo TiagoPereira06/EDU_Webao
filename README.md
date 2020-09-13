@@ -1,2 +1,3 @@
-# 1920v-LI42D-G18
-Repositório do grupo G18
+# Webao
+
+Check [Requirements](https://github.com/isel-leic-ave/Webao) at the Virtual Execution Environments Repository
